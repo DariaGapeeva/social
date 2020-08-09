@@ -1,0 +1,8 @@
+.person__photo img {
+	width: 40px;
+	height: 45px;
+}
+
+.person__name {
+	margin-top: 5px;
+}

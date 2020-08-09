@@ -1,0 +1,19 @@
+.me {
+	background-color: pink;
+}
+.user {
+	margin: 0px 0px 20px 0px;
+}
+
+.message {
+	margin: 10px 0px 10px 0px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid rgb(52, 151, 151);
+	border-radius: 15px;
+}
+
+.name {
+	width: 300px;
+	padding: 0px 0px 0px 10px;
+}

@@ -1,0 +1,14 @@
+.friends {
+	padding: 20px;
+}
+.friends__title {
+}
+
+.friends__block {
+}
+
+.friends__item {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
