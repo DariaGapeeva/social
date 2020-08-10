@@ -16,9 +16,10 @@ import Settings from './components/Settings/Settings';
 const App = (props) => {
 
 	return (
+		// <MyContext.Provider value="props.store">
 		<div className='app-wrapper'>
 			<Header />
-			<Navbar state={props.state.dialogsPage} />
+			<Navbar store={props.store} />
 			<div className='app-wrapper__content'>
 				<Route path='/dialogs' render={() => <DialogsContainer
 
@@ -34,6 +35,7 @@ const App = (props) => {
 				<Route path='/settings' render={() => <Settings />} />
 			</div>
 		</div>
+		// </MyContext.Provider>
 	)
 }
 
