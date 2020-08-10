@@ -1,66 +1,67 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { addPostActionCreator, updateNewPostTextActionCreator, addLikeActionCreator } from '../../../redux/profilePageReducer';
 import MyPosts from './MyPosts';
+// import MyContext from './../../../MyContext';
 
+// const MyPostsContainer = () => {
 
+// 	return (
+// 		<MyContext.Consumer>
+// 			{(store) => {
+// 				let state = store.getState();
+// 				let addPost = () => {
+// 					store.dispatch(addPostActionCreator())
 
+// 				};
 
+// 				let updateNewText = (text) => {
+// 					store.dispatch(updateNewPostTextActionCreator(text))
+// 				}
 
-const MyPostsContainer = (props) => {
+// 				let addLike = (id) => {
+// 					store.dispatch(addLikeActionCreator(id))
+// 				}
 
-
-	let state = props.store.getState();
-
-
-
-	let addPost = () => {
-
-
-
-		props.store.dispatch(addPostActionCreator())
-
-	};
-
-	// let postElements = props.dataPost.map(data => <Post message={data.message} countlike={data.countlike} url={data.url} id={data.id} dispatch={props.dispatch} />)
-
-	let updateNewText = (text) => {
-
-		props.store.dispatch(updateNewPostTextActionCreator(text))
+// 				return <MyPosts addNewPost={addPost}
+// 					newPostText={state.profilePage.newPostText}
+// 					updateNewText={updateNewText}
+// 					dataPost={state.profilePage.dataPost}
+// 					addNewLike={addLike} />
+// 			}
+// 			}
+// 		</MyContext.Consumer>)
+// }
+const mapStateToProps = (state) => {
+	debugger;
+	return {
+		newPostText: state.profilePage.newPostText,
+		dataPost: state.profilePage.dataPost
+	}
+};
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addNewPost: () => {
+			dispatch(addPostActionCreator())
+		},
+		updateNewText: (text) => {
+			dispatch(updateNewPostTextActionCreator(text))
+		},
+		addNewLike: (id) => {
+			dispatch(addLikeActionCreator(id))
+		}
 	}
 
-	let addLike = (id) => {
-		props.store.dispatch(addLikeActionCreator(id))
-	}
-	// return <div>
-	// 	<div>
-	// 		My posts
-	// 	<div>
-	// 			New post
-	// 	</div>
-	// 		<div>
-	// 			<textarea onChange={onPostChange} value={props.newPostText} />
 
-	// 		</div>
-	// 		<div>
-	// 			<button onClick={addPost}>Отправить</button>
-	// 		</div>
+};
 
-	// 		<div>
-	// 			{postElements}
-
-	// 		</div>
-
-	// 	</div>
-	// </div >
+const MyPostContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 
-	return <MyPosts addNewPost={addPost}
-		newPostText={state.profilePage.newPostText}
-		updateNewText={updateNewText}
-		dataPost={state.profilePage.dataPost}
-		addNewLike={addLike}
+export default MyPostContainer;
 
-	/>
-}
 
-export default MyPostsContainer;
+
+
+
+

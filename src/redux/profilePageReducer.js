@@ -15,28 +15,37 @@ let initialState = {
 
 	],
 	newPostText: 'Hi, Daria'
+
 }
 
 
 const profilePageReducer = (state = initialState, action) => {
 
 	switch (action.type) {
-		case ADD_POST:
+		case ADD_POST: {
 			let newPost = {
 				id: state.dataPost.length + 1,
 				message: state.newPostText,
 				countlike: 0,
 				url: 'https://www.seedsavers.org/site/img/seo-images/0184-purity-cosmos-flower.jpg'
 			};
-			state.dataPost.push(newPost);
-			state.newPostText = '';
-			return state;
-		case UPDATE_NEW_POST_TEXT:
-			state.newPostText = action.newText;
-			return state;
-		case ADD_LIKE:
-			state.dataPost[action.id - 1].countlike = state.dataPost[action.id - 1].countlike + 1;
-			return state;
+			let stateCopy = { ...state };
+			stateCopy.dataPost = [...state.dataPost];
+			stateCopy.dataPost.push(newPost);
+			stateCopy.newPostText = '';
+			return stateCopy;
+		}
+		case UPDATE_NEW_POST_TEXT: {
+			let stateCopy = { ...state };
+			stateCopy.newPostText = action.newText;
+			return stateCopy;
+		}
+		case ADD_LIKE: {
+			let stateCopy = { ...state };
+			stateCopy.dataPost = [...state.dataPost];
+			stateCopy.dataPost[action.id - 1].countlike = stateCopy.dataPost[action.id - 1].countlike + 1;
+			return stateCopy;
+		}
 		default:
 			return state;
 
