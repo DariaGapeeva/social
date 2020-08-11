@@ -9,9 +9,9 @@ import Message from './Message/Message.jsx';
 
 const Dialogs = (props) => {
 
-	let dialogsElements = props.dataPerson.map(dialog => <DialogItem name={dialog.name} id={dialog.id} url={dialog.url} />)
+	let dialogsElements = props.dataPerson.map(dialog => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} url={dialog.url} />)
 
-	let messagesElements = props.dataMessage.map(message => <Message message={message.message} user={message.user} user={message.user} />)
+	let messagesElements = props.dataMessage.map(message => <Message key={message.id} message={message.message} user={message.user} user={message.user} />)
 
 
 

@@ -23,6 +23,10 @@ const Navbar = () => {
 			</div>
 		</nav >
 		<FriendsContainer />
+
+		<div className={styles.navbar__item_user}>
+			<NavLink to='/users' activeClassName={styles.active}>Find Users</NavLink>
+		</div>
 	</div>
 }
 

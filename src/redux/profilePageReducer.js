@@ -28,29 +28,30 @@ const profilePageReducer = (state = initialState, action) => {
 				message: state.newPostText,
 				countlike: 0,
 				url: 'https://www.seedsavers.org/site/img/seo-images/0184-purity-cosmos-flower.jpg'
-			};
-			let stateCopy = { ...state };
-			stateCopy.dataPost = [...state.dataPost];
-			stateCopy.dataPost.push(newPost);
-			stateCopy.newPostText = '';
-			return stateCopy;
+			}
+			return {
+				...state,
+				dataPost: [...state.dataPost, newPost],
+				newPostText: ''
+			}
 		}
 		case UPDATE_NEW_POST_TEXT: {
-			let stateCopy = { ...state };
-			stateCopy.newPostText = action.newText;
-			return stateCopy;
+			return {
+				...state,
+				newPostText: action.newText
+			};
 		}
 		case ADD_LIKE: {
-			let stateCopy = { ...state };
-			stateCopy.dataPost = [...state.dataPost];
+			let stateCopy = {
+				...state,
+				dataPost: [...state.dataPost]
+			}
 			stateCopy.dataPost[action.id - 1].countlike = stateCopy.dataPost[action.id - 1].countlike + 1;
 			return stateCopy;
 		}
 		default:
 			return state;
-
 	}
-
 }
 
 export const addLikeActionCreator = (id) => ({ type: 'ADD-LIKE', id: id });

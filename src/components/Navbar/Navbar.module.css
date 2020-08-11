@@ -13,12 +13,21 @@
 	color: red;
 	margin-bottom: 15px;
 }
-.navbar__item a {
+.navbar__item a,
+.navbar__item_user a {
 	text-decoration: none;
 	color: #000;
 }
 
 .navbar__item a.active,
-.navbar__item a:hover {
+.navbar__item a:hover,
+.navbar__item_user a.active,
+.navbar__item_user a:hover {
 	color: rgb(73, 73, 73);
+}
+
+.navbar__item_user {
+	font-size: 26px;
+	font-weight: 700;
+	margin: 0px 0px 30px 20px;
 }

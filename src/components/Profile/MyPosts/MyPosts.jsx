@@ -18,7 +18,7 @@ const MyPosts = (props) => {
 
 	};
 
-	let postElements = props.dataPost.map(data => <Post message={data.message} countlike={data.countlike} url={data.url} id={data.id} addNewLike={props.addNewLike} />)
+	let postElements = props.dataPost.map(data => <Post key={data.id} message={data.message} countlike={data.countlike} url={data.url} id={data.id} addNewLike={props.addNewLike} />)
 
 	let onPostChange = (event) => {
 		props.updateNewText(event.target.value);
