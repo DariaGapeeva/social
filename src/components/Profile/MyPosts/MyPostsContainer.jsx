@@ -33,7 +33,7 @@ import MyPosts from './MyPosts';
 // 		</MyContext.Consumer>)
 // }
 const mapStateToProps = (state) => {
-	debugger;
+
 	return {
 		newPostText: state.profilePage.newPostText,
 		dataPost: state.profilePage.dataPost
