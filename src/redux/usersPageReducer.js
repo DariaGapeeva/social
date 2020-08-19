@@ -1,17 +1,15 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+
+const SET_TOTAL_COUNT_USER = 'SET-TOAL-COUNT-USER';
 
 let initialState = {
-	users: [
-		// { id: 1, photoUrl: 'https://vignette.wikia.nocookie.net/fabulous-patrol/images/e/ed/%D0%90%D0%BB%D1%91%D0%BD%D0%BA%D0%B0.png/revision/latest/top-crop/width/360/height/450?cb=20200122132618&path-prefix=ru', followed: false, fullName: 'Daria', status: 'I am a superstar', location: { country: 'Russia', city: 'Novosibirsk' } },
-		// { id: 2, photoUrl: 'https://vignette.wikia.nocookie.net/fabulous-patrol/images/e/ed/%D0%90%D0%BB%D1%91%D0%BD%D0%BA%D0%B0.png/revision/latest/top-crop/width/360/height/450?cb=20200122132618&path-prefix=ru', followed: true, fullName: 'Misha', status: 'I am here', location: { country: 'Russia', city: 'Moscow' } },
-		// { id: 3, photoUrl: 'https://vignette.wikia.nocookie.net/fabulous-patrol/images/e/ed/%D0%90%D0%BB%D1%91%D0%BD%D0%BA%D0%B0.png/revision/latest/top-crop/width/360/height/450?cb=20200122132618&path-prefix=ru', followed: false, fullName: 'Lada', status: 'I am from Mars', location: { country: 'Russia', city: 'Novosibirsk' } },
-		// { id: 4, photoUrl: 'https://vignette.wikia.nocookie.net/fabulous-patrol/images/e/ed/%D0%90%D0%BB%D1%91%D0%BD%D0%BA%D0%B0.png/revision/latest/top-crop/width/360/height/450?cb=20200122132618&path-prefix=ru', followed: true, fullName: 'Mila', status: 'Hi', location: { country: 'Russia', city: 'Novosibirsk' } },
-		// { id: 5, photoUrl: 'https://vignette.wikia.nocookie.net/fabulous-patrol/images/e/ed/%D0%90%D0%BB%D1%91%D0%BD%D0%BA%D0%B0.png/revision/latest/top-crop/width/360/height/450?cb=20200122132618&path-prefix=ru', followed: false, fullName: 'Anton', status: 'I am just your dream', location: { country: 'Russia', city: 'Novosibirsk' } },
-	]
-
-
+	users: [],
+	totalUsersCount: 0,
+	pageSize: 5,
+	currentPage: 7
 }
 
 
@@ -45,7 +43,13 @@ const usersPageReducer = (state = initialState, action) => {
 				})
 			}
 		case SET_USERS: {
-			return { ...state, users: [...state.users, ...action.users] }
+			return { ...state, users: action.users }
+		}
+		case SET_CURRENT_PAGE: {
+			return { ...state, currentPage: action.currentPage }
+		}
+		case SET_TOTAL_COUNT_USER: {
+			return { ...state, totalUsersCount: action.totalCount }
 		}
 		default:
 			return state;
@@ -55,5 +59,8 @@ const usersPageReducer = (state = initialState, action) => {
 export const followAC = (id) => ({ type: FOLLOW, id });
 export const unfollowAC = (id) => ({ type: UNFOLLOW, id });
 export const setUsersAC = (users) => ({ type: SET_USERS, users });
+export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
+export const setTotalCountUserAC = (totalCount) => ({ type: SET_TOTAL_COUNT_USER, totalCount });
+
 
 export default usersPageReducer;
