@@ -1,7 +1,5 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-export const updateNewMessageTextActionCreator = (newMessage) => ({ type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: newMessage });
-export const addMessageActionCreator = () => ({ type: 'ADD-MESSAGE' });
 
 let initialState = {
 	dataPerson: [
@@ -58,5 +56,10 @@ const dialogsPageReducer = (state = initialState, action) => {
 
 
 }
+
+
+export const updateNewMessageText = (newMessage) => ({ type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: newMessage });
+export const addNewMessage = () => ({ type: 'ADD-MESSAGE' });
+
 
 export default dialogsPageReducer;

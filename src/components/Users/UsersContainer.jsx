@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalCountUserAC, toggleFetchedAC } from './../../redux/usersPageReducer';
+import { follow, unfollow, setUsers, setCurrentPage, setTotalCountUser, toggleFetched } from './../../redux/usersPageReducer';
 import Users from './Users'
 import * as axios from 'axios';
 import React from 'react';
@@ -55,18 +55,18 @@ const mapStateToProps = (state) => {
 
 	}
 };
-const mapDispatchToProps = (dispatch) => {
-	return {
-		follow: (id) => dispatch(followAC(id)),
-		unfollow: (id) => dispatch(unfollowAC(id)),
-		setUsers: (users) => dispatch(setUsersAC(users)),
-		setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
-		setTotalCountUser: (totalCount) => dispatch(setTotalCountUserAC(totalCount)),
-		toggleFetched: (fetched) => dispatch(toggleFetchedAC(fetched))
-	}
-};
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		follow: (id) => dispatch(followAC(id)),
+// 		unfollow: (id) => dispatch(unfollowAC(id)),
+// 		setUsers: (users) => dispatch(setUsersAC(users)),
+// 		setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
+// 		setTotalCountUser: (totalCount) => dispatch(setTotalCountUserAC(totalCount)),
+// 		toggleFetched: (fetched) => dispatch(toggleFetchedAC(fetched))
+// 	}
+// };
 
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+export default connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalCountUser, toggleFetched })(UsersAPIComponent);

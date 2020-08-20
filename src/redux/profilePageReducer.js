@@ -1,6 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
+const SET_USER_PROFILE = 'SET-USER-PROFILE'
 
 let initialState = {
 	dataPost: [
@@ -14,7 +15,8 @@ let initialState = {
 		// { id: 8, message: 'I am here. I am here', countlike: 0, url: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Magnolia_sieboldii_flower_1.jpg' }
 
 	],
-	newPostText: 'Hi, Daria'
+	newPostText: 'Hi, Daria',
+	profile: null
 
 }
 
@@ -49,13 +51,17 @@ const profilePageReducer = (state = initialState, action) => {
 			stateCopy.dataPost[action.id - 1].countlike = stateCopy.dataPost[action.id - 1].countlike + 1;
 			return stateCopy;
 		}
+		case SET_USER_PROFILE: {
+			return { ...state, profile: action.profile }
+		}
 		default:
 			return state;
 	}
 }
 
-export const addLikeActionCreator = (id) => ({ type: 'ADD-LIKE', id: id });
-export const addPostActionCreator = () => ({ type: 'ADD-POST' });
-export const updateNewPostTextActionCreator = (newText) => ({ type: 'UPDATE-NEW-POST-TEXT', newText: newText });
+export const addNewLike = (id) => ({ type: ADD_LIKE, id: id });
+export const addNewPost = () => ({ type: ADD_POST });
+export const updateNewText = (newText) => ({ type: UPDATE_NEW_POST_TEXT, newText: newText });
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
 export default profilePageReducer;
