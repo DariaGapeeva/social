@@ -10,7 +10,9 @@ class UsersAPIComponent extends React.Component {
 	componentDidMount() {
 		this.props.toggleFetched(true);
 		if (this.props.users.length === 0) {
-			axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
+			axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`, {
+				withCredentials: true
+			})
 				.then(response => {
 					this.props.toggleFetched(false);
 					this.props.setUsers(response.data.items);
@@ -22,7 +24,9 @@ class UsersAPIComponent extends React.Component {
 	setNewCurrentPage = (page) => {
 		this.props.setCurrentPage(page);
 		this.props.toggleFetched(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${page}`)
+		axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${page}`, {
+			withCredentials: true
+		})
 			.then(response => {
 				this.props.toggleFetched(false);
 				this.props.setUsers(response.data.items)
