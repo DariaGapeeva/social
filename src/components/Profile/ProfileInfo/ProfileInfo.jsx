@@ -2,11 +2,14 @@ import React from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from '../../common/preloader/Preloader';
 import userPhoto from '../../../jpg/1.jpg'
+import { Redirect } from 'react-router-dom';
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
 		return <Preloader />
 	}
+
+
 	return (<div className={styles.profile}>
 		<div className={styles.profile__line}>
 

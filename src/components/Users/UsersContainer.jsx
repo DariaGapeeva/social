@@ -1,9 +1,15 @@
 import { connect } from 'react-redux';
-import { follow, unfollow, setUsers, setCurrentPage, setTotalCountUser, toggleFetched, toggleFollowingProgress, getUsersThunkcreator, getUsersPageThunkcreator } from './../../redux/usersPageReducer';
+import {
+	follow, unfollow, setUsers, setCurrentPage, setTotalCountUser, toggleFetched,
+	toggleFollowingProgress, getUsersThunkcreator, getUsersPageThunkcreator, unfollowThunkCreator, followThunkCreator
+} from './../../redux/usersPageReducer';
 import Users from './Users'
 import React from 'react';
 import Preloader from '../common/preloader/Preloader';
 import { usersApi } from '../../API/api'
+import { Redirect } from 'react-router-dom';
+import { withAuthRedirect } from './../../HOC/withAuthRedirect'
+import { compose } from 'redux';
 
 class UsersAPIComponent extends React.Component {
 
@@ -21,7 +27,8 @@ class UsersAPIComponent extends React.Component {
 
 		return <>
 			{this.props.fetched ? <Preloader /> : null}
-			<Users totalUsersCount={this.props.totalUsersCount}
+			<Users
+				totalUsersCount={this.props.totalUsersCount}
 				pageSize={this.props.pageSize}
 				setNewCurrentPage={this.setNewCurrentPage}
 				currentPage={this.props.currentPage}
@@ -29,7 +36,10 @@ class UsersAPIComponent extends React.Component {
 				follow={this.props.follow}
 				users={this.props.users}
 				followingInProgress={this.props.followingInProgress}
-				toggleFollowingProgress={this.props.toggleFollowingProgress} />
+				toggleFollowingProgress={this.props.toggleFollowingProgress}
+				unfollowThunk={this.props.unfollowThunk}
+				followThunk={this.props.followThunk}
+			/>
 		</>
 	}
 }
@@ -42,7 +52,8 @@ const mapStateToProps = (state) => {
 		totalUsersCount: state.usersPage.totalUsersCount,
 		currentPage: state.usersPage.currentPage,
 		fetched: state.usersPage.fetched,
-		followingInProgress: state.usersPage.followingInProgress
+		followingInProgress: state.usersPage.followingInProgress,
+
 
 	}
 };
@@ -56,11 +67,14 @@ const mapDispatchToProps = (dispatch) => {
 		toggleFetched: (fetched) => dispatch(toggleFetched(fetched)),
 		toggleFollowingProgress: (fetched, id) => dispatch(toggleFollowingProgress(fetched, id)),
 		getUserThunk: (pageSize, currentPage) => dispatch(getUsersThunkcreator(pageSize, currentPage)), getUsersPageThunkcreator,
-		getUsersPageThunk: (pageSize, page) => dispatch(getUsersPageThunkcreator(pageSize, page))
+		getUsersPageThunk: (pageSize, page) => dispatch(getUsersPageThunkcreator(pageSize, page)),
+		unfollowThunk: (id) => dispatch(unfollowThunkCreator(id)),
+		followThunk: (id) => dispatch(followThunkCreator(id))
+
 	}
 };
 
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+export default compose(
+	connect(mapStateToProps, mapDispatchToProps),
+	withAuthRedirect
+)(UsersAPIComponent)

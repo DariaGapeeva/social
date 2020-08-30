@@ -1,21 +1,12 @@
 import React from 'react';
-import styles from './Header.module.css';
-import { NavLink } from 'react-router-dom';
-import { render } from '@testing-library/react';
 import Header from './Header';
 import { connect } from 'react-redux';
-import { setUserData } from './../../redux/authReducer';
-import { authApi } from './../../API/api'
+import { authThunkCreator } from './../../redux/authReducer';
+
 
 class HeaderContainer extends React.Component {
 	componentDidMount() {
-		authApi.login().then(response => {
-			if (response.data.resultCode === 0) {
-				let { id, email, login } = response.data.data;
-				this.props.setUserData(id, email, login);
-			}
-
-		})
+		this.props.authThunk();
 	}
 
 	render() {
@@ -30,4 +21,12 @@ const mapStateToProps = (state) => {
 		login: state.auth.login
 	}
 }
-export default connect(mapStateToProps, { setUserData })(HeaderContainer);
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+
+		authThunk: () => dispatch(authThunkCreator())
+
+	}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

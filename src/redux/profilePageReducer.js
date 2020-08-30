@@ -1,3 +1,5 @@
+import { profileApi } from './../API/api'
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
@@ -62,6 +64,17 @@ const profilePageReducer = (state = initialState, action) => {
 export const addNewLike = (id) => ({ type: ADD_LIKE, id: id });
 export const addNewPost = () => ({ type: ADD_POST });
 export const updateNewText = (newText) => ({ type: UPDATE_NEW_POST_TEXT, newText: newText });
-export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
+
+export const getProfileThunk = (userId) => {
+	return (dispatch) => {
+		profileApi.getProfile(userId)
+			.then(data => dispatch(setUserProfile(data)))
+	}
+
+}
+
+
+
 
 export default profilePageReducer;
