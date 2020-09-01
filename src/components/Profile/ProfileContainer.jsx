@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { getProfileThunk } from '../../redux/profilePageReducer'
 import { withRouter, Redirect } from 'react-router-dom';
-import { profileApi } from '../../API/api';
+
 import { withAuthRedirect } from './../../HOC/withAuthRedirect';
 import { compose } from 'redux';
 
@@ -16,6 +16,8 @@ class ProfileContainer extends React.Component {
 			userId = 2;
 		}
 		this.props.getProfileThunk(userId);
+		this.props.getUserStatus(userId);
+
 	}
 
 	render = () => {
@@ -31,6 +33,7 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
 	profile: state.profilePage.profile,
+	status: state.profilePage.profile
 
 })
 
