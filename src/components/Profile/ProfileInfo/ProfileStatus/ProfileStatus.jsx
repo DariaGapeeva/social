@@ -5,7 +5,8 @@ import { updateUserStatus } from './../../../../redux/profilePageReducer';
 class ProfileStatus extends React.Component {
 
 	state = {
-		editmode: false
+		editmode: false,
+		status: this.props.status
 
 	}
 	activateEditMode = () => {
@@ -24,18 +25,23 @@ class ProfileStatus extends React.Component {
 		this.setState({
 			editmode: false
 		})
-		this.props.updateUserStatus()
+		this.props.updateUserStatus(this.state.status)
 	}
 
+	onStatusChange = (event) => {
+		this.setState({
+			status: event.target.value
+		})
+	}
 
 	render = () => {
 		return (
 			<div>
 				{!this.state.editmode ? <div>
-					<span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+					<span onDoubleClick={this.activateEditMode}>{!this.props.status ? "статуса НЕТ" : this.props.status}</span>
 				</div> :
 					<div>
-						<span><input autoFocus={true} onBlur={this.deactivateEditMode} value={this.props.status}></input></span>
+						<span><input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status}></input></span>
 					</div>}
 			</div>
 		)

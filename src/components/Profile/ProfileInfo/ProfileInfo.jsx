@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
 
 		<div className={styles.profile}>
 			<div className={styles.profile__line}>
-				<ProfileStatus status={props.status} />
+				<ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus} />
 
 			</div>
 			<div className={styles.profile__user}>
