@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ProfileStatus.module.css';
+import { updateUserStatus } from './../../../../redux/profilePageReducer';
 
 class ProfileStatus extends React.Component {
 
@@ -23,6 +24,7 @@ class ProfileStatus extends React.Component {
 		this.setState({
 			editmode: false
 		})
+		this.props.updateUserStatus()
 	}
 
 
