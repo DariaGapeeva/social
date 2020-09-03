@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
 
 		<div className={styles.profile}>
 			<div className={styles.profile__line}>
-				<ProfileStatus status={"Hello my friends"} />
+				<ProfileStatus status={props.status} />
 
 			</div>
 			<div className={styles.profile__user}>
