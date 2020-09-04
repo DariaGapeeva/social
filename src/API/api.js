@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Login from '../components/Login/Login';
 
 const instance = axios.create({
 	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -28,9 +29,19 @@ export const followApi = {
 
 
 export const authApi = {
-	login() {
+	me() {
 		return instance.get('auth/me')
+	},
+	login(email, password, rememberMe) {
+		return instance.post('auth/login',
+			{
+				email: email,
+				password: password,
+				rememberMe: rememberMe,
+
+			})
 	}
+
 }
 
 export const profileApi = {
@@ -49,3 +60,4 @@ export const profileApi = {
 			.then(response => response.data)
 	}
 }
+

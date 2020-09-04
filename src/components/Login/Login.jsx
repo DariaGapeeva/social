@@ -4,7 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 const LoginForm = (props) => {
 	return <form onSubmit={props.handleSubmit}>
 		<div>
-			<Field placeholder='login' name='login' component="input" type='text' />
+			<Field placeholder='email' name='email' component="input" type='text' />
 		</div>
 		<div>
 			<Field placeholder='password' name='password' component="input" type='password' />
@@ -24,8 +24,10 @@ const LoginReduxForm = reduxForm({
 
 const Login = (props) => {
 
+
 	const onSubmit = (formData) => {
-		console.log(formData)
+		// console.log(formData);
+		props.postLoginData(formData)
 
 	}
 
