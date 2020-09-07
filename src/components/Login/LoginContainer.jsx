@@ -1,8 +1,7 @@
 import React from 'react';
 import Login from './Login';
-import { authApi } from '../../API/api';
 import { connect } from 'react-redux';
-import { loginThunk, postLoginData } from '../../redux/loginReducer'
+import { loginThunk, postLoginData } from '../../redux/authReducer'
 
 
 class LoginContainer extends React.Component {
@@ -21,9 +20,9 @@ class LoginContainer extends React.Component {
 
 const mapStateTpProps = (state) => {
 	return {
-		email: state.login.email,
-		password: state.login.password,
-		rememberMe: state.login.rememberMe
+		email: state.auth.dataLogin.email,
+		password: state.auth.dataLogin.password,
+		rememberMe: state.auth.dataLogin.rememberMe
 	}
 }
 

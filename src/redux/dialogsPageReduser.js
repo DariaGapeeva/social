@@ -1,5 +1,6 @@
+import { actionTypes } from "redux-form";
+
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let initialState = {
 	dataPerson: [
@@ -25,7 +26,7 @@ let initialState = {
 		// { id: 8, message: 'I am very glad to see you', user: 'me' },
 		// { id: 9, message: 'Lotus is very beatiful flower', user: 'user' }
 	],
-	newMessageText: 'Hi, my name is Daria'
+
 }
 
 const dialogsPageReducer = (state = initialState, action) => {
@@ -33,21 +34,13 @@ const dialogsPageReducer = (state = initialState, action) => {
 		case ADD_MESSAGE: {
 			let newMessage = {
 				id: state.dataMessage.length + 1,
-				message: state.newMessageText,
+				message: action.message,
 				user: 'me'
 			}
 			return {
 				...state,
 				dataMessage: [...state.dataMessage, newMessage],
-				newMessageText: ''
 			};
-		}
-		case UPDATE_NEW_MESSAGE_TEXT: {
-			return {
-				...state,
-				newMessageText: action.newMessage
-			};
-
 		}
 
 		default:
@@ -57,9 +50,6 @@ const dialogsPageReducer = (state = initialState, action) => {
 
 }
 
-
-export const updateNewMessageText = (newMessage) => ({ type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: newMessage });
-export const addNewMessage = () => ({ type: 'ADD-MESSAGE' });
-
+export const addMessage = (message) => ({ type: 'ADD-MESSAGE', message });
 
 export default dialogsPageReducer;

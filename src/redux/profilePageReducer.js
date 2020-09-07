@@ -1,7 +1,7 @@
 import { profileApi } from './../API/api'
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+// const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
@@ -18,7 +18,7 @@ let initialState = {
 		// { id: 8, message: 'I am here. I am here', countlike: 0, url: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Magnolia_sieboldii_flower_1.jpg' }
 
 	],
-	newPostText: 'Hi, Daria',
+	// newPostText: 'Hi, Daria',
 	profile: null,
 	status: ''
 
@@ -31,22 +31,22 @@ const profilePageReducer = (state = initialState, action) => {
 		case ADD_POST: {
 			let newPost = {
 				id: state.dataPost.length + 1,
-				message: state.newPostText,
+				message: action.post,
 				countlike: 0,
 				url: 'https://www.seedsavers.org/site/img/seo-images/0184-purity-cosmos-flower.jpg'
 			}
 			return {
 				...state,
 				dataPost: [...state.dataPost, newPost],
-				newPostText: ''
+				// newPostText: ''
 			}
 		}
-		case UPDATE_NEW_POST_TEXT: {
-			return {
-				...state,
-				newPostText: action.newText
-			};
-		}
+		// case UPDATE_NEW_POST_TEXT: {
+		// 	return {
+		// 		...state,
+		// 		newPostText: action.newText
+		// 	};
+		// }
 		case ADD_LIKE: {
 			let stateCopy = {
 				...state,
@@ -70,8 +70,8 @@ const profilePageReducer = (state = initialState, action) => {
 }
 
 export const addNewLike = (id) => ({ type: ADD_LIKE, id: id });
-export const addNewPost = () => ({ type: ADD_POST });
-export const updateNewText = (newText) => ({ type: UPDATE_NEW_POST_TEXT, newText: newText });
+export const addPost = (post) => ({ type: ADD_POST, post });
+// export const updateNewText = (newText) => ({ type: UPDATE_NEW_POST_TEXT, newText: newText });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setUserStatus = (status) => ({ type: SET_USER_STATUS, status })
 

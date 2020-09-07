@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNewPost, updateNewText, addNewLike } from '../../../redux/profilePageReducer';
+import { addPost, addNewLike } from '../../../redux/profilePageReducer';
 import MyPosts from './MyPosts';
 // import MyContext from './../../../MyContext';
 
@@ -35,13 +35,13 @@ import MyPosts from './MyPosts';
 const mapStateToProps = (state) => {
 
 	return {
-		newPostText: state.profilePage.newPostText,
+		// newPostText: state.profilePage.newPostText,
 		dataPost: state.profilePage.dataPost
 	}
 };
 
 
-const MyPostContainer = connect(mapStateToProps, { addNewPost, updateNewText, addNewLike })(MyPosts);
+const MyPostContainer = connect(mapStateToProps, { addPost, addNewLike })(MyPosts);
 
 
 export default MyPostContainer;

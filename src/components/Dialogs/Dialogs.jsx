@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from './Dialogs.module.css';
+import styles from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogsItem.jsx';
 import Message from './Message/Message.jsx';
-import { Redirect } from 'react-router-dom';
+import { reduxForm, Field } from 'redux-form';
+import { required } from '../../utilits/validators/validator';
 
 
 
@@ -15,18 +16,12 @@ const Dialogs = (props) => {
 	let messagesElements = props.dataMessage.map(message => <Message key={message.id} message={message.message} user={message.user} user={message.user} />)
 
 
+	const addMessage = (formData) => {
 
-	let addMessage = () => {
-		if (props.newMessageText !== '') {
-			props.addNewMessage();
-			// props.dispatch(addMessageActionCreator());
-		}
+		props.addMessage(formData.message)
 
 	}
-	let onMessageChange = (event) => {
-		props.updateNewMessageText(event.target.value);
-		// props.dispatch(updateNewMessageTextActionCreator(event.target.value))
-	}
+
 	// if (!props.authed) { return <Redirect to='/login' /> }
 	return (
 		<div className={styles.dialogs}>
@@ -39,16 +34,30 @@ const Dialogs = (props) => {
 
 				<div className={styles.dialogs__newPost}>
 					<div className={styles.dialogs__title}>me</div>.
-					<div className={styles.dialogs__textarea}>
-						<textarea onChange={onMessageChange} wrap="hard" value={props.newMessageText} />
-					</div>
-					<button className={styles.dialogs__btn} onClick={addMessage}>Send</button>
 
+					<DialogsReduxForm onSubmit={addMessage} />
 				</div>
 
 			</div>
 		</div>
 	)
 }
+
+
+const DialogsForm = (props) => {
+
+	return <form onSubmit={props.handleSubmit}>
+		<div className={styles.dialogs__textarea + '-' + styles.right}>
+			<Field
+				name='message'
+				component='textarea'
+				wrap='hard'
+				type='text'
+				validate={[required]} />
+		</div>
+		<button className={styles.dialogs__btn}>Send</button>
+	</form>
+}
+const DialogsReduxForm = reduxForm({ form: 'dialogs' })(DialogsForm)
 
 export default Dialogs;

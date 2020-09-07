@@ -5,6 +5,16 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	&__login {
+		margin-bottom: 5px;
+	}
+	&__link {
+		text-decoration: none;
+		color: black;
+		&:hover {
+			color: rgb(73, 73, 73);
+		}
+	}
 }
 
 .header img {
@@ -12,5 +22,3 @@
 
 	display: block;
 }
-/* .login {
-} */

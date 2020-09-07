@@ -40,6 +40,9 @@ export const authApi = {
 				rememberMe: rememberMe,
 
 			})
+	},
+	loginOut() {
+		return instance.delete('auth/login')
 	}
 
 }
