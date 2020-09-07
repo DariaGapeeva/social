@@ -18,6 +18,7 @@
 		width: 300px;
 		height: 70px;
 		padding: 10px;
+		border: 1px solid rgb(52, 151, 151);
 		border-radius: 15px;
 		textarea {
 			resize: none;
@@ -28,20 +29,14 @@
 			overflow: auto;
 			white-space: pre-wrap;
 		}
-		&-right {
-			border: 1px solid rgb(52, 151, 151);
-		}
-		&-wrong {
-			border: 1px solid rgb(52, 151, 151);
-		}
+		// .right {
+		// 	border: 1px solid rgb(52, 151, 151);
+		// }
+		// &-wrong {
+		// 	border: 1px solid rgb(52, 151, 151);
+		// }
 	}
-	&__btn {
-		border: 1px solid rgb(52, 151, 151);
-		border-radius: 3px;
-		width: 70px;
-		height: 20px;
-		line-height: 20px;
+	&__button {
 		margin: 20px 0px 0px 700px;
-		outline: none;
 	}
 }

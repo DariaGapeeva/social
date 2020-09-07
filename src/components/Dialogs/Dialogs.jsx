@@ -4,6 +4,7 @@ import DialogItem from './DialogItem/DialogsItem.jsx';
 import Message from './Message/Message.jsx';
 import { reduxForm, Field } from 'redux-form';
 import { required } from '../../utilits/validators/validator';
+import { Button } from '../common/Button/Button';
 
 
 
@@ -47,7 +48,7 @@ const Dialogs = (props) => {
 const DialogsForm = (props) => {
 
 	return <form onSubmit={props.handleSubmit}>
-		<div className={styles.dialogs__textarea + '-' + styles.right}>
+		<div className={styles.dialogs__textarea}>
 			<Field
 				name='message'
 				component='textarea'
@@ -55,7 +56,10 @@ const DialogsForm = (props) => {
 				type='text'
 				validate={[required]} />
 		</div>
-		<button className={styles.dialogs__btn}>Send</button>
+		{/* <button className={styles.dialogs__btn}>Send</button> */}
+		<div className={styles.dialogs__button}>
+			<Button valueButton={'Send'} />
+		</div>
 	</form>
 }
 const DialogsReduxForm = reduxForm({ form: 'dialogs' })(DialogsForm)

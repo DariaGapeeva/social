@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { reduxForm, Field } from 'redux-form';
+import { Button } from '../common/Button/Button';
 
 const LoginForm = (props) => {
 	return <form onSubmit={props.handleSubmit}>
@@ -14,7 +15,7 @@ const LoginForm = (props) => {
 			<Field type='checkbox' name='rememberMe' component="input" /> Remember me
 	</div>
 		<div>
-			<button>Login</button>
+			<Button valueButton={'Login'} />
 		</div>
 	</form>
 }

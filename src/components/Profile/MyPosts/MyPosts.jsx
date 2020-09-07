@@ -1,9 +1,10 @@
 import React from 'react';
 import Post from './Post/Post';
 import { reduxForm, Field, reset } from 'redux-form';
-import { required } from '../../../utilits/validators/validator';
-
-
+import { required, maxLength30 } from '../../../utilits/validators/validator';
+import { Textarea } from '../../common/formControl/formControls';
+import { Button } from '../../common/Button/Button';
+import styles from './MyPosts.module.scss';
 
 
 
@@ -15,13 +16,14 @@ const MyPosts = (props) => {
 	const onSubmit = (formData) => {
 		console.log(formData.postChange);
 		if (formData.postChange !== '') {
+
 			props.addPost(formData.postChange);
 
 		}
 	}
 
 
-	return <div>
+	return <div className={styles.myPosts}>
 		<div>
 			My posts
 		<div>
@@ -42,16 +44,17 @@ const MyPosts = (props) => {
 const PostForm = (props) => {
 
 
-	return <form onSubmit={props.handleSubmit}>
-		<div>
+	return <form className={styles.form} onSubmit={props.handleSubmit}>
+		<div className={styles.form__textarea}>
 			<Field
 				name="postChange"
-				component="textarea"
+				component={Textarea}
 				type="text"
-				validate={required} />
+				validate={[required, maxLength30]}
+				placeholder='post message' />
 		</div>
-		<div>
-			<button> Отправить</button>
+		<div className={styles.form__button}>
+			<Button valueButton={'Отправить'} />
 		</div>
 	</form>
 }
