@@ -1,4 +1,5 @@
 .app-wrapper {
+	color: rgb(8, 32, 32);
 	display: grid;
 	width: 1200px;
 	margin: 0 auto;
@@ -14,4 +15,5 @@
 
 .app-wrapper__content {
 	grid-area: c;
+	color: rgb(8, 32, 32);
 }

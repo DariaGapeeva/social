@@ -39,6 +39,7 @@ const Login = (props) => {
 
 	return <div className={styles.login}>
 		<h1 className={styles.login__title}>Login </h1>
+		{props.error && <div className={styles.login__error}> {props.error} </div>}
 		<LoginReduxForm onSubmit={onSubmit} />
 	</div>
 

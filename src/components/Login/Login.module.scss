@@ -3,6 +3,11 @@
 	width: 325px;
 	height: 600px;
 	&__title {
+		color: rgb(8, 32, 32);
+	}
+	&__error {
+		color: red;
+		margin: 0px 0px 15px 0px;
 	}
 }
 

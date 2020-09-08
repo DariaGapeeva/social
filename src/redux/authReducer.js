@@ -2,20 +2,16 @@ import { authApi } from './../API/api'
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const POST_LOGIN_DATA = 'POST_LOGIN_DATA';
-// const LOGOUT = 'LOGOUT';
+const SET_ERROR = 'SET_ERROR'
 
 const initialState = {
-	dataLogin: {
-		email: '',
-		password: '',
-		rememberMe: ''
-	},
 
 	id: null,
 	email: null,
 	login: null,
 	authed: false,
-	fetched: false
+	fetched: false,
+	error: ''
 
 }
 
@@ -41,14 +37,13 @@ const authReducer = (state = initialState, action) => {
 			}
 		}
 
-		// case LOGOUT: {
-		// 	return {
-		// 		...state,
-		// 		...action.data,
-		// 		authed: false
+		case SET_ERROR: {
+			return {
+				...state,
+				error: action.error
 
-		// 	}
-		// }
+			}
+		}
 
 
 		default: return state
@@ -57,7 +52,7 @@ const authReducer = (state = initialState, action) => {
 
 export const setUserData = (id, email, login, authed) => ({ type: SET_USER_DATA, payload: { id, email, login, authed } });
 export const postLoginData = (formData) => ({ type: POST_LOGIN_DATA, formData });
-// export const logout = (id, email, login) => ({ type: LOGOUT, data: { id, email, login } })
+export const setError = (error) => ({ type: SET_ERROR, error })
 
 
 export const authThunk = () => {
@@ -81,6 +76,9 @@ export const loginThunk = (email, password, rememberMe) => {
 			.then(response => {
 				if (response.data.resultCode === 0) {
 					dispatch(authThunk())
+				} else {
+					let message = [...response.data.messages]
+					dispatch(setError(message))
 				}
 			})
 	}

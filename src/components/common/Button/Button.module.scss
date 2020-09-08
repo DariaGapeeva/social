@@ -1,13 +1,22 @@
 .button {
 	border: 1px solid rgb(52, 151, 151);
-	border-radius: 3px;
-	width: 70px;
+	background-color: rgb(224, 245, 245);
+	box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
+	color: rgb(52, 151, 151);
+	border-radius: 5px;
+	width: 80px;
 	height: 20px;
 	line-height: 20px;
 	outline: none;
 	text-align: center;
 	button {
 		border: transparent;
+		background-color: rgb(224, 245, 245);
+		color: rgb(8, 32, 32);
+		font-size: 14px;
 		outline: none;
+	}
+	&:hover {
+		color: rgb(73, 73, 73);
 	}
 }

@@ -6,24 +6,32 @@
 	justify-content: space-between;
 	align-items: center;
 	&__login {
-		margin-bottom: 5px;
 	}
 	&__box {
-		background-color: violet;
 	}
 	&__buttons {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		align-items: center;
 	}
 	&__item {
 		background-color: rgb(224, 245, 245);
 		border: 1px solid rgb(52, 151, 151);
 		border-radius: 5px;
-		padding: 4px;
+		padding: 2px 20px 2px 20px;
 		font-size: 14px;
+		max-width: 80px;
+		color: rgb(8, 32, 32);
+		text-decoration: none;
 		&:hover {
 			color: rgb(73, 73, 73);
+		}
+		&:first-child {
+			margin: 0px 0px 5px 0px;
+		}
+		&:last-child {
+			margin: 5px 0px 5px 0px;
 		}
 	}
 }

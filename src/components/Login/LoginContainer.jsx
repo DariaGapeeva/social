@@ -21,7 +21,7 @@ import { loginThunk } from '../../redux/authReducer'
 const mapStateToProps = (state) => {
 	return {
 		authed: state.auth.authed,
-
+		error: state.auth.error
 	}
 }
 
