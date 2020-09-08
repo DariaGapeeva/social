@@ -17,7 +17,7 @@ const Post = (props) => {
 		{props.message}
 		<div className={styles.socialReviews}>
 			<span>
-				<button onClick={addLike}>like</button>
+				<button onClick={addLike}>&#128077;</button>
 				{props.countlike}</span>
 
 		</div>

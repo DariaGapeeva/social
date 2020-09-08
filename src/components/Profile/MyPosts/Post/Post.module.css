@@ -10,3 +10,9 @@
 }
 .socialReviews {
 }
+
+button {
+	border: transparent;
+	cursor: pointer;
+	outline: none;
+}

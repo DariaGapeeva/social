@@ -8,9 +8,20 @@
 	&__login {
 		margin-bottom: 5px;
 	}
-	&__link {
-		text-decoration: none;
-		color: black;
+	&__box {
+		background-color: violet;
+	}
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__item {
+		background-color: rgb(224, 245, 245);
+		border: 1px solid rgb(52, 151, 151);
+		border-radius: 5px;
+		padding: 4px;
+		font-size: 14px;
 		&:hover {
 			color: rgb(73, 73, 73);
 		}
@@ -21,4 +32,7 @@
 	width: 100px;
 
 	display: block;
+}
+.p {
+	background-color: pink;
 }

@@ -5,6 +5,7 @@ import Message from './Message/Message.jsx';
 import { reduxForm, Field } from 'redux-form';
 import { required } from '../../utilits/validators/validator';
 import { Button } from '../common/Button/Button';
+import { Textarea } from '../common/formControl/formControls';
 
 
 
@@ -51,7 +52,7 @@ const DialogsForm = (props) => {
 		<div className={styles.dialogs__textarea}>
 			<Field
 				name='message'
-				component='textarea'
+				component={Textarea}
 				wrap='hard'
 				type='text'
 				validate={[required]} />

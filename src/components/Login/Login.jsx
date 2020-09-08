@@ -1,18 +1,21 @@
 import React from 'react';
-
+import styles from './Login.module.scss'
 import { reduxForm, Field } from 'redux-form';
 import { Button } from '../common/Button/Button';
+import { Input, Checkbox } from '../common/formControl/formControls';
+import { required, maxLength30 } from '../../utilits/validators/validator';
+import { Redirect } from 'react-router-dom';
 
 const LoginForm = (props) => {
-	return <form onSubmit={props.handleSubmit}>
-		<div>
-			<Field placeholder='email' name='email' component="input" type='text' />
+	return <form onSubmit={props.handleSubmit} className={styles.form}>
+		<div className={styles.form__input}>
+			<Field placeholder='email' name='email' component={Input} type='text' validate={[required, maxLength30]} />
 		</div>
-		<div>
-			<Field placeholder='password' name='password' component="input" type='password' />
+		<div className={styles.form__input}>
+			<Field placeholder='password' name='password' component={Input} type='password' validate={[required, maxLength30]} />
 		</div>
-		<div>
-			<Field type='checkbox' name='rememberMe' component="input" /> Remember me
+		<div className={styles.form__input}>
+			<Field type='checkbox' name='rememberMe' component={Checkbox} /> Remember me
 	</div>
 		<div>
 			<Button valueButton={'Login'} />
@@ -28,13 +31,14 @@ const Login = (props) => {
 
 
 	const onSubmit = (formData) => {
-		// console.log(formData);
-		props.postLoginData(formData)
+
+		props.loginThunk(formData.email, formData.password, formData.rememberMe)
 
 	}
+	if (props.authed) return <Redirect to={'/profile'} />
 
-	return <div>
-		<h1>Login </h1>
+	return <div className={styles.login}>
+		<h1 className={styles.login__title}>Login </h1>
 		<LoginReduxForm onSubmit={onSubmit} />
 	</div>
 

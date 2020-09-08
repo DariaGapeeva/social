@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post/Post';
 import { reduxForm, Field, reset } from 'redux-form';
-import { required, maxLength30 } from '../../../utilits/validators/validator';
+import { required } from '../../../utilits/validators/validator';
 import { Textarea } from '../../common/formControl/formControls';
 import { Button } from '../../common/Button/Button';
 import styles from './MyPosts.module.scss';
@@ -50,7 +50,7 @@ const PostForm = (props) => {
 				name="postChange"
 				component={Textarea}
 				type="text"
-				validate={[required, maxLength30]}
+				validate={[required]}
 				placeholder='post message' />
 		</div>
 		<div className={styles.form__button}>

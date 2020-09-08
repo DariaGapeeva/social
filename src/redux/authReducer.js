@@ -2,7 +2,7 @@ import { authApi } from './../API/api'
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const POST_LOGIN_DATA = 'POST_LOGIN_DATA';
-const LOGIN_OUT = 'LOGIN_OUT';
+// const LOGOUT = 'LOGOUT';
 
 const initialState = {
 	dataLogin: {
@@ -26,8 +26,8 @@ const authReducer = (state = initialState, action) => {
 		case SET_USER_DATA:
 			return {
 				...state,
-				...action.data,
-				authed: true
+				...action.payload,
+
 
 			}
 
@@ -41,23 +41,23 @@ const authReducer = (state = initialState, action) => {
 			}
 		}
 
-		case LOGIN_OUT: {
-			return {
-				...state,
-				...action.data,
-				authed: false
+		// case LOGOUT: {
+		// 	return {
+		// 		...state,
+		// 		...action.data,
+		// 		authed: false
 
-			}
-		}
+		// 	}
+		// }
 
 
 		default: return state
 	}
 }
 
-export const setUserData = (id, email, login) => ({ type: SET_USER_DATA, data: { id, email, login } });
+export const setUserData = (id, email, login, authed) => ({ type: SET_USER_DATA, payload: { id, email, login, authed } });
 export const postLoginData = (formData) => ({ type: POST_LOGIN_DATA, formData });
-export const loginOut = (id, email, login) => ({ type: LOGIN_OUT, data: { id, email, login } })
+// export const logout = (id, email, login) => ({ type: LOGOUT, data: { id, email, login } })
 
 
 export const authThunk = () => {
@@ -65,7 +65,7 @@ export const authThunk = () => {
 		authApi.me().then(response => {
 			if (response.data.resultCode === 0) {
 				let { id, email, login } = response.data.data;
-				dispatch(setUserData(id, email, login));
+				dispatch(setUserData(id, email, login, true));
 			}
 
 		})
@@ -86,13 +86,13 @@ export const loginThunk = (email, password, rememberMe) => {
 	}
 }
 
-export const loginOutThunk = () => {
+export const logoutThunk = () => {
 	return (dispatch) => {
-		authApi.loginOut()
+		authApi.logOut()
 			.then(response => {
 				if (response.data.resultCode === 0) {
 					let { id, email, login } = response.data.data;
-					dispatch(loginOut(id, email, login))
+					dispatch(setUserData(id, email, login, false));
 				}
 			})
 	}
