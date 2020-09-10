@@ -55,20 +55,19 @@ export const postLoginData = (formData) => ({ type: POST_LOGIN_DATA, formData })
 export const setError = (error) => ({ type: SET_ERROR, error })
 
 
-export const authThunk = () => {
-	return (dispatch) => {
-		authApi.me().then(response => {
-			if (response.data.resultCode === 0) {
-				let { id, email, login } = response.data.data;
-				dispatch(setUserData(id, email, login, true));
-			}
+export const authThunk = () => (dispatch) => {
+	return authApi.me().then(response => {
+		if (response.data.resultCode === 0) {
+			let { id, email, login } = response.data.data;
+			dispatch(setUserData(id, email, login, true));
+		}
 
-		})
+	})
 
-
-	}
 
 }
+
+
 
 export const loginThunk = (email, password, rememberMe) => {
 	return (dispatch) => {
