@@ -6,6 +6,7 @@ import { Input, Checkbox } from '../common/formControl/formControls';
 import { required, maxLength30 } from '../../utilits/validators/validator';
 import { Redirect } from 'react-router-dom';
 
+
 const LoginForm = (props) => {
 	return <form onSubmit={props.handleSubmit} className={styles.form}>
 		<div className={styles.form__input}>
@@ -38,9 +39,16 @@ const Login = (props) => {
 	if (props.authed) return <Redirect to={'/profile'} />
 
 	return <div className={styles.login}>
-		<h1 className={styles.login__title}>Login </h1>
-		{props.error && <div className={styles.login__error}> {props.error} </div>}
-		<LoginReduxForm onSubmit={onSubmit} />
+		<div className={styles.notepad}>
+			<h1 className={styles.notepad__title}>Login </h1>
+			{props.error && <div className={styles.notepad__error}> {props.error} </div>}
+			<LoginReduxForm onSubmit={onSubmit} />
+		</div>
+		<div className={styles.test}>
+			<div className={styles.test__text}>Email: free@samuraijs.com</div>
+			<div className={styles.test__text}>Password: free</div>
+		</div>
+
 	</div>
 
 }
