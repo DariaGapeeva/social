@@ -14,7 +14,7 @@ import { compose } from 'redux';
 class UsersAPIComponent extends React.Component {
 
 	componentDidMount() {
-		this.props.getUserThunk(this.props.pageSize, this.props.currentPage)
+		this.props.getUsersThunk(this.props.pageSize, this.props.currentPage)
 	}
 
 	setNewCurrentPage = (page) => {
@@ -66,7 +66,7 @@ const mapDispatchToProps = (dispatch) => {
 		setTotalCountUser: (totalCount) => dispatch(setTotalCountUser(totalCount)),
 		toggleFetched: (fetched) => dispatch(toggleFetched(fetched)),
 		toggleFollowingProgress: (fetched, id) => dispatch(toggleFollowingProgress(fetched, id)),
-		getUserThunk: (pageSize, currentPage) => dispatch(getUsersThunkcreator(pageSize, currentPage)), getUsersPageThunkcreator,
+		getUsersThunk: (pageSize, currentPage) => dispatch(getUsersThunkcreator(pageSize, currentPage)), getUsersPageThunkcreator,
 		getUsersPageThunk: (pageSize, page) => dispatch(getUsersPageThunkcreator(pageSize, page)),
 		unfollowThunk: (id) => dispatch(unfollowThunkCreator(id)),
 		followThunk: (id) => dispatch(followThunkCreator(id))

@@ -15,6 +15,9 @@ import { initializeApp } from './redux/appReduser';
 import { connect } from 'react-redux'
 import { compose } from 'redux';
 import Preloader from './components/common/preloader/Preloader';
+import Friends from './components/FollowedUsers/Friends';
+import FriendsContainer from './components/FollowedUsers/FriendsContainer'
+
 
 
 
@@ -42,6 +45,7 @@ class App extends React.Component {
 					<Route path='/dialogs' render={() => <DialogsContainer />} />
 					<Route path='/profile/:userId?' render={() => <ProfileContainer />} />
 					<Route path='/users' render={() => <UsersContainer />} />
+					<Route path='/friends' render={() => <FriendsContainer />} />
 					<Route path='/news' render={() => <News />} />
 					<Route path='/music' render={() => <Music />} />
 					<Route path='/settings' render={() => <Settings />} />

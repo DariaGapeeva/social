@@ -94,6 +94,22 @@ export const getUsersThunkcreator = (pageSize, currentPage) => {
 	}
 
 }
+export const getFollowedUserThunk = (pageSize, currentPage) => {
+	return (dispatch) => {
+		dispatch(toggleFetched(true));
+
+		usersApi.getUsers(pageSize, currentPage)
+			.then(data => {
+
+				dispatch(toggleFetched(false));
+				data.items = data.items.filter(item => item.followed === true);
+				dispatch(setUsers(data.items));
+				dispatch(setTotalCountUser(data.totalCount));
+			})
+	}
+
+}
+
 export const getUsersPageThunkcreator = (pageSize, page) => {
 	return (dispatch) => {
 		dispatch(setCurrentPage(page));

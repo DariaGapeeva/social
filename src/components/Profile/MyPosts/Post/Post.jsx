@@ -11,7 +11,7 @@ const Post = (props) => {
 	}
 
 
-	return <div className={styles.item}>
+	return <div className={styles.box}>
 
 		<img src={props.url} />
 		{props.message}

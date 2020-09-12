@@ -5,6 +5,8 @@ import { required } from '../../../utilits/validators/validator';
 import { Textarea } from '../../common/formControl/formControls';
 import { Button } from '../../common/Button/Button';
 import styles from './MyPosts.module.scss';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// import 'react-tabs/style/react-tabs.scss';
 
 
 
@@ -25,15 +27,24 @@ const MyPosts = (props) => {
 
 	return <div className={styles.myPosts}>
 		<div>
-			My posts
-		<div>
-				New post
-		</div>
+			<Tabs>
+				<TabList >
+					<Tab>My posts</Tab>
+					<Tab>My photos</Tab>
+				</TabList>
 
-			<PostReduxForm onSubmit={onSubmit} />
-			<div>
-				{postElements}
-			</div>
+				<TabPanel>
+					{/* <h2>Any content 1</h2> */}
+					<PostReduxForm onSubmit={onSubmit} />
+					<div>
+						{postElements}
+					</div>
+
+				</TabPanel>
+				<TabPanel>
+					<h2>здесь будут фото</h2>
+				</TabPanel>
+			</Tabs>
 
 		</div>
 	</div >
@@ -54,7 +65,7 @@ const PostForm = (props) => {
 				placeholder='post message' />
 		</div>
 		<div className={styles.form__button}>
-			<Button valueButton={'Отправить'} />
+			<Button valueButton={'Добавить'} />
 		</div>
 	</form>
 }

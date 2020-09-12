@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ProfileStatus.module.css';
+import styles from './ProfileStatus.module.scss';
 import { updateUserStatus } from './../../../../redux/profilePageReducer';
 
 class ProfileStatus extends React.Component {
@@ -48,11 +48,11 @@ class ProfileStatus extends React.Component {
 		console.log('render')
 
 		return (
-			<div>
-				{!this.state.editmode ? <div>
+			<div >
+				{!this.state.editmode ? <div className={styles.item}>
 					<span onDoubleClick={this.activateEditMode}>{!this.props.status ? "статуса НЕТ" : this.props.status}</span>
 				</div> :
-					<div>
+					<div className={styles.item}>
 						<span><input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status}></input></span>
 					</div>}
 			</div>

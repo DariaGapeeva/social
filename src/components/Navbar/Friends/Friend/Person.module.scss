@@ -1,0 +1,13 @@
+.person {
+	&__photo {
+		background-color: rgb(235, 240, 240);
+
+		img {
+			width: 40px;
+			height: 45px;
+		}
+	}
+	&__name {
+		margin-top: 5px;
+	}
+}

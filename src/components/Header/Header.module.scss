@@ -1,7 +1,9 @@
 .header {
 	grid-area: h;
 	border-bottom: 1px solid rgb(52, 151, 151);
-	background-color: rgb(205, 218, 218);
+	border-left: 1px solid rgb(52, 151, 151);
+	border-right: 1px solid rgb(52, 151, 151);
+	background-color: rgb(235, 240, 240);
 	padding: 15px;
 	display: flex;
 	justify-content: space-between;

@@ -1,4 +1,6 @@
 .login {
+	background-color: rgb(235, 240, 240);
+	height: 100%;
 	display: flex;
 	justify-content: space-between;
 }
@@ -18,7 +20,7 @@
 	}
 	&__error {
 		color: red;
-		margin: 0px 0px 15px 45px;
+		margin: 5px 0px 0px 45px;
 		font-size: 14px;
 	}
 }
@@ -26,6 +28,7 @@
 .test {
 	padding: 10px;
 	width: 300px;
+	background-color: #fff;
 	border: 1px solid rgb(52, 151, 151);
 	box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
 	border-radius: 15px;

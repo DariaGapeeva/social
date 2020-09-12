@@ -1,0 +1,56 @@
+.profile {
+	padding: 15px;
+	&__name {
+		font-size: 23px;
+	}
+	&__line {
+		margin: 10px 0px 0px 0px;
+	}
+	&__user {
+		display: flex;
+		padding: 40px 15px 30px 0px;
+		margin: 0px 0px 0px 0px;
+		position: relative;
+
+		&:after {
+			content: "";
+			position: absolute;
+			background: linear-gradient(to right, #ff1493, #ff4500, #ffff00, #00ff00, #00ffff, #00bfff, #8a2be2);
+			opacity: 0.5;
+			height: 5px;
+			width: 95%;
+			top: 15px;
+			left: 0px;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			background: linear-gradient(to right, #ff1493, #ff4500, #ffff00, #00ff00, #00ffff, #00bfff, #8a2be2);
+			opacity: 0.5;
+			height: 5px;
+			width: 95%;
+			bottom: 15px;
+			left: 0px;
+		}
+	}
+}
+
+.profile__photo {
+}
+.profile__photo img {
+	height: 100px;
+}
+.profile__info {
+	margin: 0px 0px 0px 15px;
+}
+.profile__text {
+	margin: 0px 0px 8px 0px;
+}
+.profile__title {
+	display: inline-block;
+
+	width: 150px;
+}
+.profile__data {
+	display: inline-block;
+}
