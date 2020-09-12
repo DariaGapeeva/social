@@ -12,6 +12,10 @@ export const usersApi = {
 	getUsers(pageSize, currentPage) {
 		return instance.get(`users?count=${pageSize}&page=${currentPage}`,)
 			.then(response => response.data)
+	},
+	getFriends(pageSize, currentPage) {
+		return instance.get(`users?count=${pageSize}&page=${currentPage}&friend=true`,)
+			.then(response => response.data)
 	}
 
 }

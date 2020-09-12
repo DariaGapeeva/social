@@ -5,7 +5,7 @@ import userPhoto from '../../jpg/1.jpg';
 
 
 const Friends = (props) => {
-	let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
+	let pageCount = Math.ceil(props.totalCountFriends / props.pageSize);
 	let pageCountArray = [];
 	for (let i = 1; i <= pageCount; i++) {
 		pageCountArray.push(i);

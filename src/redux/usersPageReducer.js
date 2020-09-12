@@ -2,15 +2,19 @@ import { usersApi, followApi } from './../API/api'
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET-USERS';
+const SET_USERS = 'SET_USERS';
+// const SET_FRIENDS = 'SET-FRIENDS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_COUNT_USER = 'SET-TOAL-COUNT-USER';
+const SET_TOTAL_COUNT_FRIENDS = 'SET_TOTAL_COUNT_FRIENDS';
 const TOOGLE_FETCHED = 'TOGGLE-FETCHED';
 const TOGGLE_IS_FOLLOWING_IN_PROGRESS = 'TOGGLE_IS_FOLLOWING_IN_PROGRESS';
 
 let initialState = {
 	users: [],
+	// friends: [],
 	totalUsersCount: 0,
+	totalCountFriends: 0,
 	pageSize: 5,
 	currentPage: 1,
 	fetched: false,
@@ -50,12 +54,19 @@ const usersPageReducer = (state = initialState, action) => {
 		case SET_USERS: {
 			return { ...state, users: action.users }
 		}
+		// case SET_USERS: {
+		// 	return { ...state, users: action.users }
+		// }
 		case SET_CURRENT_PAGE: {
 			return { ...state, currentPage: action.currentPage }
 		}
 		case SET_TOTAL_COUNT_USER: {
 			return { ...state, totalUsersCount: action.totalCount }
 		}
+		case SET_TOTAL_COUNT_FRIENDS: {
+			return { ...state, totalCountFriends: action.totalCountFriends }
+		}
+
 		case TOOGLE_FETCHED: {
 			return { ...state, fetched: action.fetched }
 		}
@@ -77,6 +88,7 @@ export const unfollow = (id) => ({ type: UNFOLLOW, id });
 export const setUsers = (users) => ({ type: SET_USERS, users });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
 export const setTotalCountUser = (totalCount) => ({ type: SET_TOTAL_COUNT_USER, totalCount });
+export const setTotalCountFriends = (totalCountFriends) => ({ type: SET_TOTAL_COUNT_FRIENDS, totalCountFriends });
 export const toggleFetched = (fetched) => ({ type: TOOGLE_FETCHED, fetched });
 export const toggleFollowingProgress = (fetched, id) => ({ type: TOGGLE_IS_FOLLOWING_IN_PROGRESS, fetched, id });
 
@@ -94,21 +106,21 @@ export const getUsersThunkcreator = (pageSize, currentPage) => {
 	}
 
 }
-export const getFollowedUserThunk = (pageSize, currentPage) => {
+export const getFriendsThunkcreator = (pageSize, currentPage) => {
 	return (dispatch) => {
 		dispatch(toggleFetched(true));
 
-		usersApi.getUsers(pageSize, currentPage)
+		usersApi.getFriends(pageSize, currentPage)
 			.then(data => {
 
 				dispatch(toggleFetched(false));
-				data.items = data.items.filter(item => item.followed === true);
 				dispatch(setUsers(data.items));
-				dispatch(setTotalCountUser(data.totalCount));
+				dispatch(setTotalCountFriends(data.totalCount));
 			})
 	}
 
 }
+
 
 export const getUsersPageThunkcreator = (pageSize, page) => {
 	return (dispatch) => {

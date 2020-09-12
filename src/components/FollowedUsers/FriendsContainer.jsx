@@ -1,13 +1,13 @@
 import React from 'react';
 import Friends from './Friends';
 import { connect } from 'react-redux';
-import { getFollowedUserThunk, follow, unfollow, } from './../../redux/usersPageReducer'
+import { getFriendsThunkcreator, follow, unfollow, } from './../../redux/usersPageReducer'
 import Preloader from '../common/preloader/Preloader';
 
 class FriendsContainer extends React.Component {
 
 	componentDidMount() {
-		this.props.getFollowedUserThunk(this.props.pageSize, this.props.currentPage)
+		this.props.getFriendsThunkcreator(this.props.pageSize, this.props.currentPage)
 	}
 
 
@@ -16,8 +16,14 @@ class FriendsContainer extends React.Component {
 	render() {
 		return <>
 			{this.props.fetched ? <Preloader /> : null}
-			<Friends {...this.props}
+			<Friends
+				fetched={this.props.fetched}
+				followedUsers={this.props.followedUsers}
+				pageSize={this.props.pageSize}
+				currentPage={this.props.currentPage}
 
+				followingInProgress={this.props.followingInProgress}
+				totalCountFriends={this.props.totalCountFriends}
 
 
 
@@ -42,12 +48,11 @@ const mapStateToProps = (state) => {
 		pageSize: state.usersPage.pageSize,
 		currentPage: state.usersPage.currentPage,
 		followingInProgress: state.usersPage.followingInProgress,
-		totalUsersCount: state.usersPage.totalUsersCount,
-
+		totalCountFriends: state.usersPage.totalCountFriends,
 	}
 }
 
 
 
 
-export default connect(mapStateToProps, { getFollowedUserThunk, follow, unfollow, })(FriendsContainer);
+export default connect(mapStateToProps, { getFriendsThunkcreator, follow, unfollow, })(FriendsContainer);
