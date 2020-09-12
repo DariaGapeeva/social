@@ -3,7 +3,7 @@ import { usersApi, followApi } from './../API/api'
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
-// const SET_FRIENDS = 'SET-FRIENDS';
+const SET_FRIENDS = 'SET-FRIENDS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_COUNT_USER = 'SET-TOAL-COUNT-USER';
 const SET_TOTAL_COUNT_FRIENDS = 'SET_TOTAL_COUNT_FRIENDS';
@@ -12,7 +12,7 @@ const TOGGLE_IS_FOLLOWING_IN_PROGRESS = 'TOGGLE_IS_FOLLOWING_IN_PROGRESS';
 
 let initialState = {
 	users: [],
-	// friends: [],
+	friends: [],
 	totalUsersCount: 0,
 	totalCountFriends: 0,
 	pageSize: 5,
@@ -54,9 +54,9 @@ const usersPageReducer = (state = initialState, action) => {
 		case SET_USERS: {
 			return { ...state, users: action.users }
 		}
-		// case SET_USERS: {
-		// 	return { ...state, users: action.users }
-		// }
+		case SET_FRIENDS: {
+			return { ...state, friends: action.friends }
+		}
 		case SET_CURRENT_PAGE: {
 			return { ...state, currentPage: action.currentPage }
 		}
@@ -86,6 +86,7 @@ const usersPageReducer = (state = initialState, action) => {
 export const follow = (id) => ({ type: FOLLOW, id });
 export const unfollow = (id) => ({ type: UNFOLLOW, id });
 export const setUsers = (users) => ({ type: SET_USERS, users });
+export const setFriends = (friends) => ({ type: SET_FRIENDS, friends });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
 export const setTotalCountUser = (totalCount) => ({ type: SET_TOTAL_COUNT_USER, totalCount });
 export const setTotalCountFriends = (totalCountFriends) => ({ type: SET_TOTAL_COUNT_FRIENDS, totalCountFriends });
@@ -114,7 +115,7 @@ export const getFriendsThunkcreator = (pageSize, currentPage) => {
 			.then(data => {
 
 				dispatch(toggleFetched(false));
-				dispatch(setUsers(data.items));
+				dispatch(setFriends(data.items));
 				dispatch(setTotalCountFriends(data.totalCount));
 			})
 	}
@@ -130,6 +131,20 @@ export const getUsersPageThunkcreator = (pageSize, page) => {
 			.then(data => {
 				dispatch(toggleFetched(false));
 				dispatch(setUsers(data.items));
+			})
+
+
+
+	}
+}
+export const getFriendsPageThunkcreator = (pageSize, page) => {
+	return (dispatch) => {
+		dispatch(setCurrentPage(page));
+		dispatch(toggleFetched(true));
+		usersApi.getFriends(pageSize, page)
+			.then(data => {
+				dispatch(toggleFetched(false));
+				dispatch(setFriends(data.items));
 			})
 
 

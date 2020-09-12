@@ -1,7 +1,7 @@
 import React from 'react';
 import Friends from './Friends';
 import { connect } from 'react-redux';
-import { getFriendsThunkcreator, follow, unfollow, } from './../../redux/usersPageReducer'
+import { getFriendsPageThunkcreator, getFriendsThunkcreator, follow, unfollow, } from './../../redux/usersPageReducer'
 import Preloader from '../common/preloader/Preloader';
 
 class FriendsContainer extends React.Component {
@@ -10,7 +10,11 @@ class FriendsContainer extends React.Component {
 		this.props.getFriendsThunkcreator(this.props.pageSize, this.props.currentPage)
 	}
 
+	setNewCurrentPage = (page) => {
 
+		this.props.getFriendsPageThunkcreator(this.props.pageSize, page)
+
+	}
 
 
 	render() {
@@ -21,7 +25,7 @@ class FriendsContainer extends React.Component {
 				followedUsers={this.props.followedUsers}
 				pageSize={this.props.pageSize}
 				currentPage={this.props.currentPage}
-
+				setNewCurrentPage={this.setNewCurrentPage}
 				followingInProgress={this.props.followingInProgress}
 				totalCountFriends={this.props.totalCountFriends}
 
@@ -44,7 +48,7 @@ class FriendsContainer extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		fetched: state.usersPage.fetched,
-		followedUsers: state.usersPage.users,
+		followedUsers: state.usersPage.friends,
 		pageSize: state.usersPage.pageSize,
 		currentPage: state.usersPage.currentPage,
 		followingInProgress: state.usersPage.followingInProgress,
@@ -55,4 +59,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { getFriendsThunkcreator, follow, unfollow, })(FriendsContainer);
+export default connect(mapStateToProps, { getFriendsPageThunkcreator, getFriendsThunkcreator, follow, unfollow, })(FriendsContainer);

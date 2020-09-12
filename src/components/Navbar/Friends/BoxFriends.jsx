@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Friends.module.css';
+import styles from './BoxFriends.module.css';
 import Person from './Friend/Person';
 import { NavLink } from 'react-router-dom';
 
@@ -7,9 +7,9 @@ import { NavLink } from 'react-router-dom';
 
 const Friends = (props) => {
 	return <div className={styles.friends}>
-		<div className={styles.friends__title}>
+		{/* <div className={styles.friends__title}>
 			Friends
-		</div>
+		</div> */}
 		<div className={styles.friends__block}>
 			<div className={styles.friends__item}>
 				<Person name={props.state.dialogsPage.dataPerson[0].name} url={props.state.dialogsPage.dataPerson[0].url} />
