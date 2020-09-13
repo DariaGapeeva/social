@@ -45,8 +45,8 @@ const Login = (props) => {
 			<LoginReduxForm onSubmit={onSubmit} />
 		</div>
 		<div className={styles.test}>
-			<div className={styles.test__text}>Email: free@samuraijs.com</div>
-			<div className={styles.test__text}>Password: free</div>
+			<div className={styles.test__text}>Email: d.gapeeva@gmail.com</div>
+			<div className={styles.test__text}>Password: d.gapeeva</div>
 		</div>
 
 	</div>
