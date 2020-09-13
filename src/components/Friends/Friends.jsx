@@ -13,7 +13,9 @@ const Friends = (props) => {
 
 	return (
 		<div>
-
+			<div>
+				You have {props.totalCountFriends} friends
+			</div>
 			<div className={styles.box}>
 				{pageCountArray.map(element => {
 					return <span key={element} onClick={(event) => { props.setNewCurrentPage(element) }} className={element === props.currentPage ? styles.selectedPage : ''}>{element}</span>

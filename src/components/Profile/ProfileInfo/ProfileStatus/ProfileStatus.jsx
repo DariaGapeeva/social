@@ -1,66 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ProfileStatus.module.scss';
 import { updateUserStatus } from './../../../../redux/profilePageReducer';
-
-class ProfileStatus extends React.Component {
-
-	state = {
-		editmode: false,
-		status: this.props.status
-
-	}
-	activateEditMode = () => {
+import { useEffect } from 'react';
 
 
 
-		console.log("this:", this)
+const ProfileStatus = (props) => {
+	let [editMode, setEditMode] = useState(false)
+	let [status, setStatus] = useState(props.status);
 
-		this.setState({
-			editmode: true
-		})
-	}
-	deactivateEditMode = () => {
+	useEffect(() => {
+		setStatus(props.status)
+	}, [props.status])
 
-
-		this.setState({
-			editmode: false
-		})
-		this.props.updateUserStatus(this.state.status)
+	const activateEditMode = () => {
+		setEditMode(true);
 	}
 
-	onStatusChange = (event) => {
-		this.setState({
-			status: event.target.value
-		})
+	const deactivateEditMode = () => {
+		setEditMode(false);
+		props.updateUserStatus(status)
 	}
-
-	componentDidUpdate(prevProps, prevState) {
-		if (prevProps.status !== this.props.status) {
-			this.setState({
-				status: this.props.status
-			})
-		}
+	const onStatusChange = (event) => {
+		setStatus(event.target.value)
 	}
+	return (
+		<div >
+			{!editMode ? <div className={styles.item}>
+				<span onDoubleClick={activateEditMode}>{!props.status ? "статуса НЕТ" : status}</span>
+			</div> :
+				<div className={styles.item}>
+					<span><input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status}></input></span>
+				</div>}
+		</div>
+	)
 
-
-
-	render = () => {
-		console.log('render')
-
-		return (
-			<div >
-				{!this.state.editmode ? <div className={styles.item}>
-					<span onDoubleClick={this.activateEditMode}>{!this.props.status ? "статуса НЕТ" : this.props.status}</span>
-				</div> :
-					<div className={styles.item}>
-						<span><input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status}></input></span>
-					</div>}
-			</div>
-		)
-
-
-	}
 }
+
 
 
 export default ProfileStatus;

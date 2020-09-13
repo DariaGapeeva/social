@@ -1,0 +1,32 @@
+@use './../../base';
+
+.navbar {
+	grid-area: n;
+	border-left: base.$border-line-color;
+	border-right: base.$border-line-color;
+	background-color: base.$background-color;
+	padding: 15px 15px 15px 15px;
+	&__nav {
+		margin-bottom: 50px;
+	}
+	&__item {
+		color: red;
+		margin-bottom: 15px;
+	}
+	&__item a,
+	&__item_user a {
+		text-decoration: none;
+		color: #000;
+	}
+	&__item a.active,
+	&__item a:hover,
+	&__item_user a.active,
+	&__item_user a:hover {
+		color: rgb(73, 73, 73);
+	}
+	&__item_user {
+		font-size: 26px;
+		font-weight: 700;
+		margin: 0px 0px 10px 20px;
+	}
+}

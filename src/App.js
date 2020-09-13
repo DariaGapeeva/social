@@ -15,8 +15,7 @@ import { initializeApp } from './redux/appReduser';
 import { connect } from 'react-redux'
 import { compose } from 'redux';
 import Preloader from './components/common/preloader/Preloader';
-import Friends from './components/FollowedUsers/Friends';
-import FriendsContainer from './components/FollowedUsers/FriendsContainer'
+import FriendsContainer from './components/Friends/FriendsContainer'
 
 
 
