@@ -2,6 +2,9 @@ import React from 'react';
 import BoxFriends from './BoxFriends';
 import { connect } from 'react-redux';
 
+
+
+
 const mapStateToProps = (state) => {
 	return {
 		state: state,

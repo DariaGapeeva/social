@@ -1,6 +1,8 @@
 import { profileApi } from './../API/api'
 
 const ADD_POST = 'ADD-POST';
+const DELETE_POST = 'DELETE_POST';
+
 // const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
@@ -41,6 +43,14 @@ const profilePageReducer = (state = initialState, action) => {
 				// newPostText: ''
 			}
 		}
+		case DELETE_POST: {
+			return {
+				...state,
+				dataPost: state.dataPost.filter(item => item.id !== action.id)
+			}
+		}
+
+
 		// case UPDATE_NEW_POST_TEXT: {
 		// 	return {
 		// 		...state,
@@ -71,6 +81,7 @@ const profilePageReducer = (state = initialState, action) => {
 
 export const addNewLike = (id) => ({ type: ADD_LIKE, id: id });
 export const addPost = (post) => ({ type: ADD_POST, post });
+export const deletePost = (id) => ({ type: DELETE_POST, id });
 // export const updateNewText = (newText) => ({ type: UPDATE_NEW_POST_TEXT, newText: newText });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setUserStatus = (status) => ({ type: SET_USER_STATUS, status })
