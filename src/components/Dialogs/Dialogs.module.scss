@@ -3,13 +3,14 @@
 .dialogs {
 	display: grid;
 	grid-template-columns: 2fr 10fr;
+	height: 100%;
 
 	&__items {
 		padding: 10px;
-		border-right: base.$border-line-color;
 	}
 	&__messages {
 		padding: 15px;
+		border-left: base.$border-line-color;
 	}
 	&__title {
 		margin: 20px 0px -5px 470px;

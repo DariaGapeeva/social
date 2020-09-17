@@ -1,0 +1,33 @@
+.paginationContainer {
+	display: flex;
+	list-style: none;
+	align-items: center;
+}
+.paginationLi {
+	margin: 0px 5px 0px 5px;
+	cursor: pointer;
+	a {
+		outline: none;
+	}
+}
+
+.paginationPage {
+}
+.paginationPreviousClassName {
+	margin: 0px 10px 0px 0px;
+	cursor: pointer;
+	a {
+		outline: none;
+	}
+}
+.paginationNextClassName {
+	margin: 0px 0px 0px 10px;
+	cursor: pointer;
+	a {
+		outline: none;
+	}
+}
+
+.selectedPage {
+	font-weight: bold;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Login.module.scss'
-import { reduxForm, Field } from 'redux-form';
+import { reset, reduxForm, Field } from 'redux-form';
 import { Button } from '../common/Button/Button';
 import { Input, Checkbox } from '../common/formControl/formControls';
 import { required, maxLength30 } from '../../utilits/validators/validator';
@@ -24,8 +24,12 @@ const LoginForm = (props) => {
 	</form>
 }
 
+const afterSubmit = (result, dispatch) =>
+	dispatch(reset('login'));
+
 const LoginReduxForm = reduxForm({
-	form: 'login'
+	form: 'login',
+	onSubmitSuccess: afterSubmit,
 })(LoginForm)
 
 const Login = (props) => {

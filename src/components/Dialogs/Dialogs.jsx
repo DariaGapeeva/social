@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogsItem.jsx';
 import Message from './Message/Message.jsx';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, reset } from 'redux-form';
 import { required } from '../../utilits/validators/validator';
 import { Button } from '../common/Button/Button';
 import { Textarea } from '../common/formControl/formControls';
@@ -63,6 +63,16 @@ const DialogsForm = (props) => {
 		</div>
 	</form>
 }
-const DialogsReduxForm = reduxForm({ form: 'dialogs' })(DialogsForm)
+
+const afterSubmit = (result, dispatch) =>
+	dispatch(reset('dialogs'));
+
+
+
+
+const DialogsReduxForm = reduxForm({
+	form: 'dialogs',
+	onSubmitSuccess: afterSubmit,
+})(DialogsForm)
 
 export default Dialogs;

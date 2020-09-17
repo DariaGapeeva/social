@@ -1,27 +1,22 @@
 import React from 'react';
-import styles from './Users.module.css'
-import * as axios from 'axios';
+import styles from './Users.module.scss'
 import userPhoto from '../../jpg/1.jpg';
 import { NavLink } from 'react-router-dom';
-import { followApi } from '../../API/api';
+import Pagination from '../common/Pagination/Pagination';
 
 
 const Users = (props) => {
 
-	let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
-	let pageCountArray = [];
-	for (let i = 1; i <= pageCount; i++) {
-		pageCountArray.push(i);
-	}
+
 
 	return (
-		<div>
 
-			<div className={styles.box}>
-				{pageCountArray.map(element => {
-					return <span key={element} onClick={(event) => { props.setNewCurrentPage(element) }} className={element === props.currentPage ? styles.selectedPage : ''}>{element}</span>
-				})}
-			</div>
+		<div>
+			<Pagination
+				totalCount={props.totalUsersCount}
+				pageSize={props.pageSize}
+				setNewCurrentPage={props.setNewCurrentPage} />
+
 			{props.users.map(user => <div key={user.id}>
 				<span>
 					<div>

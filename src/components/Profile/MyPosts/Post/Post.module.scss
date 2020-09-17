@@ -1,0 +1,41 @@
+@use './../../../../base';
+
+.box {
+	color: #000;
+	padding: 10px 20px;
+	border: 1px solid rgb(180, 238, 238);
+	box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
+	background-color: base.$background-color-form;
+	margin: 20px 15px 0px 0px;
+	border-radius: 5px;
+	&__content {
+		display: flex;
+	}
+	&__text {
+		padding: 5px;
+		background-color: rgb(248, 248, 248);
+		box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
+		border: 1px solid rgb(180, 238, 238);
+		margin: 0px 0px 0px 30px;
+		width: 100%;
+	}
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+		margin: 10px 0px 0px 0px;
+	}
+
+	&__photo {
+		img {
+			width: 50px;
+			background-color: rgb(248, 248, 248);
+			box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
+		}
+	}
+}
+
+button {
+	border: transparent;
+	cursor: pointer;
+	outline: none;
+}

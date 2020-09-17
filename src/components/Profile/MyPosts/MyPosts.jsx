@@ -13,7 +13,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 const MyPosts = (props) => {
 
-	let postElements = props.dataPost.map(data => <Post key={data.id} message={data.message} countlike={data.countlike} url={data.url} id={data.id} addNewLike={props.addNewLike} />)
+	let postElements = props.dataPost.map(data => <Post key={data.id} message={data.message} countlike={data.countlike} url={data.url} id={data.id} addNewLike={props.addNewLike} deletePost={props.deletePost} />)
 
 	const onSubmit = (formData) => {
 		console.log(formData.postChange);
@@ -69,13 +69,12 @@ const PostForm = (props) => {
 		</div>
 	</form>
 }
-// const afterSubmit = () => {
-// 	dispatch(reset('post'))
-// }
+const afterSubmit = (result, dispatch) =>
+	dispatch(reset('post'));
 
 const PostReduxForm = reduxForm({
 	form: 'post',
-	// onSummitSuccess: afterSubmit,
+	onSubmitSuccess: afterSubmit,
 })(PostForm)
 
 export default MyPosts;

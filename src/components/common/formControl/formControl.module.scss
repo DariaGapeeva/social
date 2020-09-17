@@ -2,7 +2,7 @@
 
 .formControl {
 	width: 300px;
-	height: 70px;
+	min-height: 70px;
 	padding: 10px;
 	border: base.$border-line-color;
 	box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
@@ -15,11 +15,12 @@
 		height: 100%;
 		outline: none;
 		border: transparent;
-		overflow: auto;
+		overflow: hidden;
 		white-space: pre-wrap;
 	}
 	&.error {
-		border: 1px solid red;
+		border: 1px solid rgb(255, 0, 0);
+		box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 	}
 }
 
