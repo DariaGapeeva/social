@@ -22,7 +22,8 @@ let initialState = {
 	],
 	// newPostText: 'Hi, Daria',
 	profile: null,
-	status: ''
+	status: '',
+	countPosts: 3
 
 }
 
@@ -32,15 +33,15 @@ const profilePageReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_POST: {
 			let newPost = {
-				id: state.dataPost.length + 1,
+				id: state.countPosts + 1,
 				message: action.post,
 				countlike: 0,
+				countPosts: state.countPosts + 1,
 				url: 'https://www.seedsavers.org/site/img/seo-images/0184-purity-cosmos-flower.jpg'
 			}
 			return {
 				...state,
-				dataPost: [...state.dataPost, newPost],
-				// newPostText: ''
+				dataPost: [...state.dataPost, newPost]
 			}
 		}
 		case DELETE_POST: {
@@ -60,9 +61,10 @@ const profilePageReducer = (state = initialState, action) => {
 		case ADD_LIKE: {
 			let stateCopy = {
 				...state,
-				dataPost: [...state.dataPost]
+				dataPost: state.dataPost.map(item => item.id === action.id
+					? { ...item, countlike: item.countlike + 1 }
+					: item)
 			}
-			stateCopy.dataPost[action.id - 1].countlike = stateCopy.dataPost[action.id - 1].countlike + 1;
 			return stateCopy;
 		}
 		case SET_USER_PROFILE: {
