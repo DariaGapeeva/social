@@ -54,6 +54,7 @@ const DialogsForm = (props) => {
 				name='message'
 				component={Textarea}
 				wrap='hard'
+				cols='10'
 				type='text'
 				validate={[required]} />
 		</div>

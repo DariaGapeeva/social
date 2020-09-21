@@ -9,6 +9,7 @@
 	background-color: base.$background-color-form;
 	border-radius: 15px;
 	position: relative;
+	word-wrap: break-word;
 	textarea {
 		resize: none;
 		width: 100%;
@@ -17,6 +18,8 @@
 		border: transparent;
 		overflow: hidden;
 		white-space: pre-wrap;
+		word-wrap: break-word;
+		background-color: base.$background-color-form;
 	}
 	&.error {
 		border: 1px solid rgb(255, 0, 0);

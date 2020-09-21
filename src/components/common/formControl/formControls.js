@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './formControl.module.scss';
 import TextareaAutosize from 'react-textarea-autosize';
 
-export const Textarea = ({ input, type, placeholder, meta }) => {
+export const Textarea = ({ input, type, wrap, cols, placeholder, meta }) => {
 	const hasError = meta.touched && meta.error;
 	return (
 		<div className={styles.formControl + ' ' + (hasError ? styles.error : '')}  >
-			<TextareaAutosize  {...input} type={type} placeholder={placeholder} />
+			<TextareaAutosize  {...input} type={type} placeholder={placeholder} wrap={wrap} cols={cols} />
 			{/* <span className={styles.formControl__cross}>&#10059;</span> */}
 			{/* {meta.touched && meta.error && <span className={styles.formControl__error}>{meta.error}</span>} */}
 		</div>
