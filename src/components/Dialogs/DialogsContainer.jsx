@@ -4,13 +4,14 @@ import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../HOC/withAuthRedirect'
+import { getDataMessage, getDataPerson } from '../../redux/dialogsSelectors';
 
 
 
 const mapStateToProps = (state) => {
 	return {
-		dataPerson: state.dialogsPage.dataPerson,
-		dataMessage: state.dialogsPage.dataMessage,
+		dataPerson: getDataPerson(state),
+		dataMessage: getDataMessage(state),
 	}
 }
 

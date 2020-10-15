@@ -30,7 +30,7 @@ const MyPosts = (props) => {
 			<Tabs>
 				<TabList >
 					<Tab>My posts</Tab>
-					<Tab>My photos</Tab>
+					<Tab>My music</Tab>
 				</TabList>
 
 				<TabPanel>
@@ -42,7 +42,7 @@ const MyPosts = (props) => {
 
 				</TabPanel>
 				<TabPanel>
-					<h2>здесь будут фото</h2>
+					<h2>здесь будет музыка</h2>
 				</TabPanel>
 			</Tabs>
 

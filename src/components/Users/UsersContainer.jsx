@@ -6,10 +6,9 @@ import {
 import Users from './Users'
 import React from 'react';
 import Preloader from '../common/preloader/Preloader';
-import { usersApi } from '../../API/api'
-import { Redirect } from 'react-router-dom';
 import { withAuthRedirect } from './../../HOC/withAuthRedirect'
 import { compose } from 'redux';
+import { getPageSize, getUsers, getTotalUsersCount, getCurrentPage, getFetched, getFollowingInProgress } from '../../redux/usersSelectors';
 
 class UsersAPIComponent extends React.Component {
 
@@ -18,9 +17,7 @@ class UsersAPIComponent extends React.Component {
 	}
 
 	setNewCurrentPage = (page) => {
-
 		this.props.getUsersPageThunk(this.props.pageSize, page)
-
 	}
 
 	render() {
@@ -47,16 +44,16 @@ class UsersAPIComponent extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		users: state.usersPage.users,
-		pageSize: state.usersPage.pageSize,
-		totalUsersCount: state.usersPage.totalUsersCount,
-		currentPage: state.usersPage.currentPage,
-		fetched: state.usersPage.fetched,
-		followingInProgress: state.usersPage.followingInProgress,
-
+		users: getUsers(state),
+		pageSize: getPageSize(state),
+		totalUsersCount: getTotalUsersCount(state),
+		currentPage: getCurrentPage(state),
+		fetched: getFetched(state),
+		followingInProgress: getFollowingInProgress(state),
 
 	}
 };
+
 const mapDispatchToProps = (dispatch) => {
 	return {
 		follow: (id) => dispatch(follow(id)),

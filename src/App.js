@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import News from './components/News/News';
-import Music from './components/Music/Music';
+// import Music from './components/Photos/Photos';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -16,6 +16,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux';
 import Preloader from './components/common/preloader/Preloader';
 import FriendsContainer from './components/Friends/FriendsContainer'
+import PhotosContainer from './components/Photos/PhotosContainer';
 
 
 
@@ -44,11 +45,12 @@ class App extends React.Component {
 					<Switch>
 						<Route exact path='/' render={() => <ProfileContainer />} />
 						<Route path='/dialogs' render={() => <DialogsContainer />} />
+
 						<Route path='/profile/:userId?' render={() => <ProfileContainer />} />
 						<Route path='/users' render={() => <UsersContainer />} />
 						<Route path='/friends' render={() => <FriendsContainer />} />
 						<Route path='/news' render={() => <News />} />
-						<Route path='/music' render={() => <Music />} />
+						<Route path='/photos' render={() => <PhotosContainer />} />
 						<Route path='/settings' render={() => <Settings />} />
 						<Route path='/login' render={() => <LoginContainer />} />
 					</Switch>
@@ -64,6 +66,8 @@ const mapStateToProps = (state) => {
 		initialized: state.app.initialized
 	}
 }
+
+
 
 export default compose(
 	withRouter,

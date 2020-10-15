@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BoxFriends.module.css';
+import styles from './BoxFriends.module.scss';
 import Person from './Friend/Person';
 import { NavLink } from 'react-router-dom';
 

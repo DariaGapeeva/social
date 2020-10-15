@@ -2,7 +2,6 @@ import { profileApi } from './../API/api'
 
 const ADD_POST = 'ADD-POST';
 const DELETE_POST = 'DELETE_POST';
-
 // const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_LIKE = 'ADD-LIKE';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
@@ -20,7 +19,6 @@ let initialState = {
 		// { id: 8, message: 'I am here. I am here', countlike: 0, url: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Magnolia_sieboldii_flower_1.jpg' }
 
 	],
-	// newPostText: 'Hi, Daria',
 	profile: null,
 	status: '',
 	countPosts: 3
@@ -51,13 +49,6 @@ const profilePageReducer = (state = initialState, action) => {
 			}
 		}
 
-
-		// case UPDATE_NEW_POST_TEXT: {
-		// 	return {
-		// 		...state,
-		// 		newPostText: action.newText
-		// 	};
-		// }
 		case ADD_LIKE: {
 			let stateCopy = {
 				...state,
@@ -84,7 +75,6 @@ const profilePageReducer = (state = initialState, action) => {
 export const addNewLike = (id) => ({ type: ADD_LIKE, id: id });
 export const addPost = (post) => ({ type: ADD_POST, post });
 export const deletePost = (id) => ({ type: DELETE_POST, id });
-// export const updateNewText = (newText) => ({ type: UPDATE_NEW_POST_TEXT, newText: newText });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setUserStatus = (status) => ({ type: SET_USER_STATUS, status })
 

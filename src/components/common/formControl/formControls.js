@@ -13,6 +13,16 @@ export const Textarea = ({ input, type, wrap, cols, placeholder, meta }) => {
 	)
 }
 
+export const TextareaVariant = (props) => {
+	return (
+		<div className={styles.textareaVariant}>
+			<TextareaAutosize />
+		</div>
+	)
+
+
+}
+
 export const Input = ({ input, type, placeholder, meta }) => {
 	const hasError = meta.touched && meta.error;
 	return (

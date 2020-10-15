@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import { getProfileThunk, getUserStatus, updateUserStatus } from '../../redux/profilePageReducer'
 import { withRouter, Redirect } from 'react-router-dom';
 import { compose } from 'redux';
+import { getProfile, getStatus } from '../../redux/profileSelectors';
+import { getAuthId } from '../../redux/authSelectors';
+import { PureComponent } from 'react';
 
-class ProfileContainer extends React.Component {
+class ProfileContainer extends PureComponent {
 	componentDidMount() {
 
 		let userId = this.props.match.params.userId;
@@ -21,6 +24,7 @@ class ProfileContainer extends React.Component {
 	}
 
 	render = () => {
+		console.log("render profile");
 
 		return <Profile {...this.props}
 			profile={this.props.profile}
@@ -34,13 +38,15 @@ class ProfileContainer extends React.Component {
 
 
 
-let mapStateToProps = (state) => ({
-	profile: state.profilePage.profile,
-	status: state.profilePage.status,
-	userId: state.auth.id
+let mapStateToProps = (state) => {
+	console.log('mapstatetorpops render');
+	return ({
+		profile: getProfile(state),
+		status: getStatus(state),
+		userId: getAuthId(state)
 
-})
-
+	})
+}
 
 export default compose(
 	connect(mapStateToProps, { getProfileThunk, getUserStatus, updateUserStatus }),

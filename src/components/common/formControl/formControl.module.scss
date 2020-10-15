@@ -1,13 +1,12 @@
 @use './../../../base';
 
-.formControl {
-	width: 300px;
-	min-height: 70px;
+.formControl,
+.textareaVariant {
 	padding: 10px;
 	border: base.$border-line-color;
-	box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
+	box-shadow: base.$box-shadow;
 	background-color: base.$background-color-form;
-	border-radius: 15px;
+	border-radius: 8px;
 	position: relative;
 	word-wrap: break-word;
 	textarea {
@@ -25,6 +24,16 @@
 		border: 1px solid rgb(255, 0, 0);
 		box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 	}
+}
+
+.formControl {
+	width: 300px;
+	min-height: 70px;
+}
+
+.textareaVariant {
+	width: 95%;
+	min-height: 20px;
 }
 
 .inputControl {
