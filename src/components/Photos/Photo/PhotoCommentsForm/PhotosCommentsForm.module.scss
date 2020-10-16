@@ -1,0 +1,61 @@
+@use '../../../../base';
+
+.box {
+	background-color: LavenderBlush;
+	position: relative;
+	padding: 20px 20px 17px 20px;
+
+	&__header {
+	}
+	&__photo {
+		width: 100%;
+	}
+	&__item {
+		display: flex;
+		justify-content: space-between;
+		// align-items: center;
+		font-size: 13px;
+	}
+
+	&__title {
+		margin: 3px 0 20px 0;
+	}
+	&__counter {
+		margin: 0px 5px 0px 0px;
+	}
+	&__heart {
+		cursor: pointer;
+		color: black;
+	}
+
+	.box__photoSmall {
+		padding: 8px;
+		img {
+			height: 40px;
+			width: auto;
+		}
+	}
+	&__textarea {
+		flex: 1 1 auto;
+		margin: 0px 0px 0px 15px;
+		padding: 10px;
+		border: base.$border-line-color;
+		box-shadow: base.$box-shadow;
+		background-color: base.$background-color-form;
+		border-radius: 8px;
+		position: relative;
+		word-wrap: break-word;
+		textarea {
+			resize: none;
+			border: transparent;
+			outline: none;
+			width: 100%;
+			overflow: hidden;
+			white-space: pre-wrap;
+		}
+	}
+
+	&__button {
+		margin-top: 15px;
+	}
+}

@@ -24,7 +24,6 @@ class ProfileContainer extends PureComponent {
 	}
 
 	render = () => {
-		console.log("render profile");
 
 		return <Profile {...this.props}
 			profile={this.props.profile}
@@ -39,7 +38,6 @@ class ProfileContainer extends PureComponent {
 
 
 let mapStateToProps = (state) => {
-	console.log('mapstatetorpops render');
 	return ({
 		profile: getProfile(state),
 		status: getStatus(state),

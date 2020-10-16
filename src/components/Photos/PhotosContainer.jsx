@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Photos from './Photos';
-import { addCommentAC } from './../../redux/photosPageReduser'
+import { addCommentAC, addCountHeartAC } from './../../redux/photosPageReduser';
+import { getProfile } from '../../redux/profileSelectors';
+
 
 const mapStateToProps = (state) => {
 
@@ -9,10 +11,10 @@ const mapStateToProps = (state) => {
 		photos: state.photosPage.photos,
 	}
 }
-
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addComment: (id, newComment) => (dispatch(addCommentAC(id, newComment))),
+		addCountHeart: (id) => (dispatch(addCountHeartAC(id))),
 
 
 	}
