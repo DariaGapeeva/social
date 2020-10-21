@@ -32,9 +32,6 @@ const PhotosCommentsForm = ({ id, url, title, comments, countHeart, addComment, 
 					<div> <span className={styles.box__counter}>{countHeart} </span> <span className={styles.box__heart} onClick={() => addCountHeart(id)}>&#9825;</span></div>
 				</div>
 			</div>
-			{comments.map((comment, index) => <Comment key={index} comment={comment} photoSmall={photoSmall} />)}
-
-
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={styles.box__item}>
 					<div className={styles.box__photoSmall}><img src={photoSmall} /></div>
@@ -46,6 +43,10 @@ const PhotosCommentsForm = ({ id, url, title, comments, countHeart, addComment, 
 					<Button valueButton="Отправить" type="submit" />
 				</div>
 			</form>
+
+
+			{comments.map((comment, index) => <Comment key={index} comment={comment} photoSmall={photoSmall} />)}
+
 
 
 		</div>

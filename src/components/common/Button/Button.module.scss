@@ -1,4 +1,5 @@
 .button {
+	display: inline-block;
 	border: 1px solid rgb(52, 151, 151);
 	background-color: rgb(224, 245, 245);
 	box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
@@ -9,6 +10,7 @@
 	line-height: 20px;
 	outline: none;
 	text-align: center;
+	padding: 0 8px;
 	button {
 		border: transparent;
 		background-color: rgb(224, 245, 245);
