@@ -6,12 +6,22 @@ import { reduxForm, Field, reset } from 'redux-form';
 import { required } from '../../utilits/validators/validator';
 import { Button } from '../common/Button/Button';
 import { Textarea } from '../common/formControl/formControls';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 
 
 
 
 const Dialogs = (props) => {
+	const refDialogs = useRef(null);
+
+	useEffect(() => {
+		refDialogs.current.scrollTop = refDialogs.current.scrollHeight;
+		console.log(refDialogs);
+	})
+
+
 
 	let dialogsElements = props.dataPerson.map(dialog => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} url={dialog.url} />)
 
@@ -26,7 +36,7 @@ const Dialogs = (props) => {
 
 	// if (!props.authed) { return <Redirect to='/login' /> }
 	return (
-		<div className={styles.dialogs}>
+		<div ref={refDialogs} className={styles.dialogs}>
 			<div className={styles.dialogs__items}>
 				{dialogsElements}
 			</div>

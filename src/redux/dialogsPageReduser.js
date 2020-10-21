@@ -12,7 +12,9 @@ let initialState = {
 		{ id: 6, name: 'Masha', url: 'https://avatars.mds.yandex.net/get-pdb/1773429/2923cda0-0465-483c-87c0-e77ee4df378c/s600' },
 		{ id: 7, name: 'Sasha', url: 'https://c7.hotpng.com/preview/657/393/319/%D0%81%D0%B6%D0%B8%D0%BA-krosh-smeshariki-barash-%D1%81%D0%BC%D0%B5%D1%88%D0%B0%D1%80%D0%B8%D0%BA%D0%B8.jpg' },
 		{ id: 8, name: 'Daria', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS0MUNgyDVKwPHnVtH9HecpvI86OBwNgGQbOQ&usqp=CAU' },
-		{ id: 9, name: 'Roman', url: 'https://vignette.wikia.nocookie.net/smesharikiarhives/images/0/03/%D0%9F%D0%B8%D0%BD.jpg/revision/latest/scale-to-width-down/340?cb=20141215134807&path-prefix=ru' }
+		{ id: 9, name: 'Roman', url: 'https://vignette.wikia.nocookie.net/smesharikiarhives/images/0/03/%D0%9F%D0%B8%D0%BD.jpg/revision/latest/scale-to-width-down/340?cb=20141215134807&path-prefix=ru' },
+		{ id: 10, name: 'Anton', url: 'https://i.pinimg.com/originals/de/53/07/de53079f087709fd7cc0e8e3300f7eed.png' },
+
 	],
 	dataMessage: [
 		{ id: 1, message: 'Смеша́рики — российский мультипликационный сериал, ориентированный на широкую аудиторию. Создан в рамках образовательного проекта «Мир без насилия» и производится при поддержке Министерства культуры[4].', user: 'user' },

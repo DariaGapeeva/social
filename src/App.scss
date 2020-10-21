@@ -1,6 +1,7 @@
 @use 'base';
 
 .app-wrapper {
+	overflow: hidden;
 	color: rgb(8, 32, 32);
 	display: grid;
 	width: 1200px;
@@ -18,9 +19,10 @@
 		grid-area: c;
 		color: rgb(8, 32, 32);
 		border-right: base.$border-line-color;
+		overflow-y: scroll;
 
 		background-color: base.$background-color;
-		// 	background-color: red;
+		// background-color: red;
 	}
 }
 
