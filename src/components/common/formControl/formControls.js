@@ -1,6 +1,17 @@
 import React from 'react';
 import styles from './formControl.module.scss';
+import styled from 'styled-components';
 import TextareaAutosize from 'react-textarea-autosize';
+
+
+
+
+
+
+
+
+
+
 
 export const Textarea = ({ input, type, wrap, cols, placeholder, meta }) => {
 	const hasError = meta.touched && meta.error;

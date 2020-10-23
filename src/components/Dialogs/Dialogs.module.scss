@@ -1,26 +1,26 @@
 @use './../../base';
 
 .dialogs {
-	display: grid;
-	grid-template-columns: 2fr 10fr;
-	height: 100%;
-	// overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  height: 100%;
+  // overflow-y: scroll;
 
-	&__items {
-		padding: 10px;
-	}
-	&__messages {
-		padding: 15px;
-		border-left: base.$border-line-color;
-	}
-	&__title {
-		margin: 20px 0px -5px 470px;
-	}
-	&__textarea {
-		text-align: right;
-	}
-	&__button {
-		text-align: right;
-		margin-top: 15px;
-	}
+  &__items {
+    padding: 10px;
+  }
+  &__messages {
+    padding: 15px;
+    border-left: base.$border-line-color;
+  }
+  &__title {
+    margin: 20px 0px -5px 470px;
+  }
+  &__textarea {
+    text-align: right;
+  }
+  &__button {
+    text-align: right;
+    margin-top: 15px;
+  }
 }

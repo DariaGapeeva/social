@@ -17,9 +17,14 @@ const Dialogs = (props) => {
 	const refDialogs = useRef(null);
 
 	useEffect(() => {
-		refDialogs.current.scrollTop = refDialogs.current.scrollHeight;
+		// refDialogs.current.scrollTop = refDialogs.current.scrollHeight;
+		refDialogs.current.scrollTop = Infinity;
 		console.log(refDialogs);
+		console.log(refDialogs.current.scrollHeight);
+
 	})
+
+
 
 
 
@@ -70,7 +75,7 @@ const DialogsForm = (props) => {
 		</div>
 		{/* <button className={styles.dialogs__btn}>Send</button> */}
 		<div className={styles.dialogs__button}>
-			<Button valueButton={'Send'} />
+			<Button valueButton={'Отправить'} />
 		</div>
 	</form>
 }
