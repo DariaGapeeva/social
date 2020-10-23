@@ -8,6 +8,9 @@ import { Button } from '../common/Button/Button';
 import { Textarea } from '../common/formControl/formControls';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import CustomScroll from 'react-custom-scroll';
+
+
 
 
 
@@ -16,10 +19,19 @@ import { useEffect } from 'react';
 const Dialogs = (props) => {
 	const refDialogs = useRef(null);
 
-	useEffect(() => {
-		refDialogs.current.scrollTop = refDialogs.current.scrollHeight;
-		console.log(refDialogs);
-	})
+	// useEffect(() => {
+	// 	refDialogs.current.scrollTop = refDialogs.current.scrollHeight;
+	// 	// refDialogs.current.scrollBy(0, refDialogs.current.scrollHeight);
+	// 	// refDialogs.current.scrollIntoView();
+	// 	console.log(refDialogs.current.scrollHeight);
+	// 	console.log(refDialogs.current.scrollTop);
+	// 	console.log(refDialogs);
+	// })
+	const scrollToBottom = () => {
+		refDialogs.current.scrollIntoView()
+	}
+
+	useEffect(scrollToBottom, [props.dataMessage]);
 
 
 
@@ -36,11 +48,13 @@ const Dialogs = (props) => {
 
 	// if (!props.authed) { return <Redirect to='/login' /> }
 	return (
-		<div ref={refDialogs} className={styles.dialogs}>
+		<div className={styles.dialogs}>
+			{/* <CustomScroll> */}
 			<div className={styles.dialogs__items}>
 				{dialogsElements}
 			</div>
-
+			{/* </CustomScroll>
+			<CustomScroll> */}
 			<div className={styles.dialogs__messages}>
 				{messagesElements}
 
@@ -49,8 +63,9 @@ const Dialogs = (props) => {
 
 					<DialogsReduxForm onSubmit={addMessage} />
 				</div>
-
+				<div ref={refDialogs} > </div>
 			</div>
+			{/* </CustomScroll> */}
 		</div>
 	)
 }
