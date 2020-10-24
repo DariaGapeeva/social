@@ -1,36 +1,34 @@
 @use '../../../../../base';
 
 .comment {
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	margin: 15px 0px 15px 0px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0px 15px 0px;
 
-	&__img {
-		padding: 8px;
-		img {
-			height: 40px;
-			width: auto;
-		}
-	}
-	&__text {
-		flex: 1 1 auto;
-		margin: 10px 0px 0px 15px;
-	}
+  &__img {
+    padding: 8px;
+    img {
+      height: 40px;
+      width: auto;
+    }
+  }
+  &__text {
+    flex: 1 1 auto;
+    margin: 10px 0px 0px 15px;
+  }
 
-	&__date {
-		font-size: 13px;
-		align-self: flex-end;
-		color: grey;
-		margin: 0px 0px 8px 0px;
-	}
-	&:before {
-		content: "";
-		position: absolute;
-		background-color: LightGray;
-		width: 100%;
-		height: 1px;
-		bottom: 5px;
-		left: 0;
-	}
+  &__date {
+    align-self: flex-end;
+    margin: 0px 0px 8px 0px;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: LightGray;
+    width: 100%;
+    height: 1px;
+    bottom: 5px;
+    left: 0;
+  }
 }

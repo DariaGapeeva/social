@@ -9,6 +9,7 @@ import { Textarea } from '../common/formControl/formControls';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import CustomScroll from 'react-custom-scroll';
+import Data from '../common/Data/Data';
 
 const Dialogs = (props) => {
   const refDialogs = useRef(null);
@@ -56,8 +57,10 @@ const Dialogs = (props) => {
       <div className={styles.dialogs__items}>{dialogsElements}</div>
       {/* </CustomScroll>
 			<CustomScroll> */}
+
       <div className={styles.dialogs__messages}>
         {messagesElements}
+        <Data />
 
         <div className={styles.dialogs__newPost}>
           <div className={styles.dialogs__title}>me</div>.
