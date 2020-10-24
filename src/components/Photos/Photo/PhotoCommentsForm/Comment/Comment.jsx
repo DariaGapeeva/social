@@ -1,10 +1,10 @@
 import React from 'react';
+import Data from '../../../../common/Data/Data';
 import styles from './Comment.module.scss'
 
 const Comment = ({ comment, photoSmall }) => {
 
-	let now = new Date();
-	let months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+
 
 
 	return (
@@ -16,7 +16,9 @@ const Comment = ({ comment, photoSmall }) => {
 				{comment}
 			</div>
 
-			<div className={styles.comment__date}>{`${now.getDate()}  ${months[now.getMonth()]} ${now.getFullYear()} `} </div>
+			<div className={styles.comment__date}>
+				<Data />
+			</div>
 		</div>
 	)
 
