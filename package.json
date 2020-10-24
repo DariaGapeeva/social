@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "node": "^14.8.0",
     "react": "^16.13.1",
+    "react-custom-scroll": "^4.2.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.9.2",
     "react-paginate": "^6.5.0",

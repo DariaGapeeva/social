@@ -22,9 +22,9 @@ let initialState = {
 		{ id: 3, message: 'I want to see my grandmother', user: 'me' },
 		{ id: 4, message: 'Do you live in the village?', user: 'me' },
 		{ id: 5, message: 'I am going to go to swim', user: 'user' },
-		// { id: 5, message: 'I am going to go to swim', user: 'user' },
-		// { id: 6, message: 'I will be back', user: 'me' },
-		// { id: 7, message: 'Very long way for you, my dear', user: 'user' },
+		{ id: 5, message: 'I am going to go to swim', user: 'user' },
+		{ id: 6, message: 'I will be back', user: 'me' },
+		{ id: 7, message: 'Very long way for you, my dear', user: 'user' },
 		// { id: 8, message: 'I am very glad to see you', user: 'me' },
 		// { id: 9, message: 'Lotus is very beatiful flower', user: 'user' }
 	],

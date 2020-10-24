@@ -1,18 +1,22 @@
 @use '../../../../base';
 
 .person {
-	&__photo {
-		border: 1px solid rgb(180, 238, 238);
-		box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
-		border-radius: 5px;
-		padding: 5px;
+  max-width: 40%;
+  flex: 0 0 40%;
+  &__photo {
+    border: 1px solid rgb(180, 238, 238);
+    box-shadow: 0 0 5px rgba(52, 151, 151, 0.5);
+    border-radius: 5px;
+    padding: 5px;
 
-		img {
-			width: 40px;
-			height: 45px;
-		}
-	}
-	&__name {
-		margin-top: 5px;
-	}
+    img {
+      width: 40px;
+      height: 45px;
+    }
+  }
+  &__name {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+  }
 }
