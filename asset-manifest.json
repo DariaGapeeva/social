@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/social/static/css/main.77ee2cb8.chunk.css",
+    "main.js": "/social/static/js/main.aa558088.chunk.js",
+    "main.js.map": "/social/static/js/main.aa558088.chunk.js.map",
+    "runtime-main.js": "/social/static/js/runtime-main.e2a91f51.js",
+    "runtime-main.js.map": "/social/static/js/runtime-main.e2a91f51.js.map",
+    "static/js/2.b3946e39.chunk.js": "/social/static/js/2.b3946e39.chunk.js",
+    "static/js/2.b3946e39.chunk.js.map": "/social/static/js/2.b3946e39.chunk.js.map",
+    "index.html": "/social/index.html",
+    "precache-manifest.fe0f4e82263d85540b076292f45ab88e.js": "/social/precache-manifest.fe0f4e82263d85540b076292f45ab88e.js",
+    "service-worker.js": "/social/service-worker.js",
+    "static/css/main.77ee2cb8.chunk.css.map": "/social/static/css/main.77ee2cb8.chunk.css.map",
+    "static/js/2.b3946e39.chunk.js.LICENSE.txt": "/social/static/js/2.b3946e39.chunk.js.LICENSE.txt",
+    "static/media/1.jpg": "/social/static/media/1.29c5063c.jpg",
+    "static/media/Japan.jpeg": "/social/static/media/Japan.7b10dc3e.jpeg",
+    "static/media/castle.jpg": "/social/static/media/castle.39f57bc8.jpg",
+    "static/media/lavender.jpg": "/social/static/media/lavender.67a57fe1.jpg",
+    "static/media/mountains.jpg": "/social/static/media/mountains.59b212f9.jpg",
+    "static/media/Login.module.scss": "/social/static/media/notepad.f21d01f7.png",
+    "static/media/profile1.png": "/social/static/media/profile1.930aeb53.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e2a91f51.js",
+    "static/js/2.b3946e39.chunk.js",
+    "static/css/main.77ee2cb8.chunk.css",
+    "static/js/main.aa558088.chunk.js"
+  ]
+}
